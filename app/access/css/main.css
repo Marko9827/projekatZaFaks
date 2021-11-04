@@ -172,7 +172,7 @@ div-put div-i[data-ui="levo"] i {
     text-align: left;
 }
 
-#tabla .div-cocka {
+#tabla div-cocka {
     position: absolute;
     left: 0px;
     right: 0px;
@@ -181,6 +181,7 @@ div-put div-i[data-ui="levo"] i {
     top: 56px;
     -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2)) !important;
     enable-background: new 0 0 512 512 !important;
+    display: grid;
 }
 
 #tabla div-put-coll {
@@ -245,4 +246,9 @@ div-i .i-home-put {
     border-radius: 5px;
     outline-offset: 0px;
     background: var(--bela_prozirna);
+}
+
+div-cocka span{
+    padding-top: 10px;
+    font-size: 10px;
 }
