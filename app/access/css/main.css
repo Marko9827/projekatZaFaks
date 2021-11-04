@@ -248,7 +248,25 @@ div-i .i-home-put {
     background: var(--bela_prozirna);
 }
 
-div-cocka span{
+div-cocka span {
     padding-top: 10px;
     font-size: 10px;
+}
+
+div-put[active="1"] .fa-horse-head {
+    outline: 2px solid;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    outline-offset: 0px;
+    background: var(--bela_prozirna);
+}
+
+div-put[active="2"] .fa-user {
+    outline: 2px solid;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    outline-offset: 0px;
+    background: var(--bela_prozirna);
 }

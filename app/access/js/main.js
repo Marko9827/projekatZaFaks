@@ -3,7 +3,8 @@ var igra = function () {
     const tabla = document.getElementById("tabla"),
         start_rs = document.querySelector("#tabla ul[data-ul='opcije'] li[data-opt='resume_start']"),
         vremeigre = document.getElementById("vremeigre"),
-        djig_cube2 = document.querySelector(".div-cocka");
+        djig_cube2 = document.querySelector(".div-cocka"),
+        div_put = document.querySelector("div-put");
 
     var vremenkusa,
         sekundara = 0,
@@ -28,7 +29,7 @@ var igra = function () {
     };
     this.testiraj = function () {
         this.contoller();
-         this.msg("Bacite kocku.");
+        this.msg("Bacite kocku.");
     };
     this.zakljucaj = function (w) {
         if (parseInt(w) == 1) {
@@ -87,6 +88,14 @@ var igra = function () {
         });
 
     };
+    this.pomerime_na_Broj = function(br,brGTA){
+        if(br.getAttribute("class").contains("i-home-put")){
+            br.setAttribute("class","i-home-put i-put far fa-dot-circle");
+        }else{
+            br.setAttribute("class", "i-put far fa-dot-circle");
+
+        }
+    };
     this.pijun = function (name) {
         djig_cube2.setAttribute("class", "div-cocka  fas fa-dice");
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
@@ -96,20 +105,23 @@ var igra = function () {
             djig_cube2.setAttribute("data-id", 1);
         }
         var h = name.getAttribute("data-fldh"),
-            rplNUM = h.replace(/[A-Z]/g, ""),
+            rplNUM = h.replace(/([A-Z])|[a-z]\w+/, ""),
+            rplNumH = name.getAttribute("data-gr");
             data_fld = document.querySelector(`#tabla div-put i[data-fld='0']`);
-        data_fld.setAttribute("class", "i-home-put i-put fas fa-horse-head");
+        data_fld.classList.remove("i-home-put i-put fas fa-horse-head");
         data_fld.setAttribute("data-fldh", h);
         djig_cube2.classList.remove("disabled");
 
+        div_put.setAttribute("active", rplNumH);
         if (kocka > 0) {
+      
+            this.msg(`Bacite ponovo kocku. Imate jedno ${kocka} dodatno bacanje`);
             kocka -= 1;
-            this.msg("Bacite ponovo kocku.");
-        } else{
+        } else {
             this.msg("Bacite kocku.");
         }
     };
-    this.msg = function(msg){
+    this.msg = function (msg) {
         document.querySelector("div-cocka span").innerHTML = msg;
     };
     this.fa_djig_cube = function (djig_cube) {
