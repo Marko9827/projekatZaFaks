@@ -24,36 +24,36 @@
 
     <div id="tabla" data-opt="loadet">
         <ul data-ul="opcije">
-            <li data-opt="resume_start" data-id="1">Nova igra</li>
+            <li data-opt="resume_start" onclick="igra.start();">Nova igra</li>
             <li><span id="rezlutat">0:0</span><br>
-                <span id="vremeigre">00:00</span>
+                <span id="vremeigre">0s</span>
             </li>
             <li>Zatvori</li>
         </ul>
 
-        <i class="div-cocka fas fa-dice" data-id="0" onclick="igra.fa_djig_cube(this);"></i>
+        <i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
 
         <div-baza1 class="bazaAB ">
-            <i data-fldH="1" class=" fas fa-horse-head"></i>
-            <i data-fldH="2" class="fas fa-horse-head"></i><br>
-            <i data-fldH="3" class="fas fa-horse-head"></i>
-            <i data-fldH="4" class="fas fa-horse-head"></i>
+            <i data-fldH="A1" class=" fas fa-horse-head"></i>
+            <i data-fldH="A2" class="fas fa-horse-head"></i><br>
+            <i data-fldH="A3" class="fas fa-horse-head"></i>
+            <i data-fldH="A4" class="fas fa-horse-head"></i>
         </div-baza1>
         <div-baza2 class="bazaAB">
-            <i  data-fldH="1"  class="far fa-user"></i>
-            <i  data-fldH="2"  class="far fa-user"></i><br>
-            <i  data-fldH="3"  class="far fa-user"></i>
-            <i  data-fldH="4"  class="far fa-user"></i>
+            <i  data-fldH="B1"  class="far fa-user"></i>
+            <i  data-fldH="B2"  class="far fa-user"></i><br>
+            <i  data-fldH="B3"  class="far fa-user"></i>
+            <i  data-fldH="B4"  class="far fa-user"></i>
         </div-baza2>
 
         <div-put>
             <div-put-coll data-ul="top">
                 <div-i data-ui="left">
-                    <i class="i-put far fa-dot-circle"></i>
-                    <i class="i-put far fa-dot-circle"></i>
-                    <i class="i-put far fa-dot-circle"></i>
-                    <i class="i-put far fa-dot-circle"></i>
-                    <i data-id="round" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="5" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="6" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="7" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="8" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="9" data-id="round" class="i-put far fa-dot-circle"></i>
                 </div-i>
                 <div-i data-ui="center">
                     <i class="i-put far fa-dot-circle"></i>
