@@ -111,7 +111,7 @@ var igra = function () {
             brGTA_this = br.getAttribute("data-fld"),
             number = parseInt(brGTA_this) + parseInt(brGTA),
             br2 = document.querySelector(`#tabla div-put i[data-fld="${number}"]`);
-        alert(number);
+        //alert(number);
             var br2_str = br2.getAttribute("class"),
             br_str = br.getAttribute("class");
 
