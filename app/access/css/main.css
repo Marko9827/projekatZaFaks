@@ -8,6 +8,11 @@
     padding: 0px;
     color: var(--boja1);
     border-color: var(--boja1);
+    user-select: none;
+}
+
+i {
+    transition: .3s;
 }
 
 *:not(i) {
@@ -70,4 +75,88 @@ body {
     position: absolute;
     right: 10px;
     top: 45px;
+}
+
+#tabla div-put {
+    top: 135px;
+    position: absolute;
+    left: 50px;
+    right: 50px;
+    bottom: 100px;
+}
+
+#tabla div-put i {
+    font-size: 25px;
+}
+
+#tabla div-put div-i {
+    position: absolute;
+}
+
+#tabla div-put div-i[data-ui="gore"] {
+    top: 0px;
+    display: inline-flex;
+    left: 0px;
+    right: 0px;
+}
+
+#tabla div-put div-i[data-ui="dole"] {
+    bottom: 0px;
+    display: inline-flex;
+    left: 0px;
+    right: 0px;
+}
+
+#tabla div-put div-i[data-ui="levo"] {
+    left: 0px;
+    display: grid;
+    bottom: 0px;
+    top: 0px;
+}
+
+#tabla div-put div-i[data-ui="desno"] {
+    right: 0px;
+    display: grid;
+    bottom: 0px;
+    top: 0px;
+}
+
+#tabla div-put div-i[data-ui="levo"] i, #tabla div-put div-i[data-ui="desno"] i {
+    height: 100%;
+}
+
+#tabla div-put div-i[data-ui="gore"] i, #tabla div-put div-i[data-ui="dole"] i {
+    width: 100%;
+    text-align: center;
+}
+
+div-put div-i[data-ui="desno"] i {
+    text-align: right;
+}
+
+div-put div-i[data-ui="levo"] i {
+    text-align: left;
+}
+
+#tabla .div-cocka {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    font-size: 50px;
+    top: 56px;
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2)) !important;
+    enable-background: new 0 0 512 512 !important;
+}
+
+#tabla div-put-coll {
+    display: inline-flex;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+}
+
+#tabla div-put-coll div-i {
+    display: grid;
+    position: unset;
 }

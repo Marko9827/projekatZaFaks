@@ -1,6 +1,6 @@
 var igra = function () {
-  
-    this.testiraj = function(){
+
+    this.testiraj = function () {
 
     };
     this.zakljucaj = function (w) {
@@ -11,7 +11,17 @@ var igra = function () {
         }
 
     };
-    this.fa_djig_cube = function (igrac, djig_cube) {
+    this.random_boja = function () {
+        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        return `#${randomColor}`;
+    };
+    this.start = function () {
+
+    };
+    this.contoller = function(){
+        
+    };
+    this.fa_djig_cube = function (djig_cube) {
         var dice_rand = {
             0: "fa-dice-one",
             1: "fa-dice-one",
@@ -24,23 +34,26 @@ var igra = function () {
 
         var timeout_seconds = 100;
 
-        djig_cube.setAttribute("class", "password inc-no fas " + dice_rand[Math.round(Math.floor(Math.random() * 6) + 1)]);
-        cube_random_name();
+        this.zakljucaj(1);
+
+        djig_cube.setAttribute("class", "div-cocka fas " + dice_rand[Math.round(Math.floor(Math.random() * 6) + 1)]);
+
         setTimeout(function () {
-            djig_cube.setAttribute("class", "password inc-no fas " + dice_rand[Math.round(Math.floor(Math.random() * 6) + 1)]);
-            cube_random_name();
+            djig_cube.setAttribute("class", "div-cocka fas " + dice_rand[Math.round(Math.floor(Math.random() * 6) + 1)]);
+
             setTimeout(function () {
-                djig_cube.setAttribute("class", "password inc-no fas " + dice_rand[Math.round(Math.floor(Math.random() * 6) + 1)]);
-                cube_random_name();
+                djig_cube.setAttribute("class", "div-cocka fas " + dice_rand[Math.round(Math.floor(Math.random() * 6) + 1)]);
+
                 setTimeout(function () {
-                    djig_cube.setAttribute("class", "password inc-no fas " + dice_rand[Math.round(Math.floor(Math.random() * 6) + 1)]);
-                    cube_random_name();
+                    djig_cube.setAttribute("class", "div-cocka fas " + dice_rand[Math.round(Math.floor(Math.random() * 6) + 1)]);
+
                     setTimeout(function () {
-                        djig_cube.setAttribute("class", "password inc-no fas " + dice_rand[Math.round(Math.floor(Math.random() * 6) + 1)]);
-                        cube_random_name();
+                        djig_cube.setAttribute("class", "div-cocka fas " + dice_rand[Math.round(Math.floor(Math.random() * 6) + 1)]);
+
                         setTimeout(function () {
-                            cube_random_name();
-                            djig_cube.setAttribute("class", "password fas fa-dice");
+
+                            new igra.zakljucaj(0);
+                            djig_cube.setAttribute("class", "div-cocka  fas fa-dice");
                         }, timeout_seconds);
                     }, timeout_seconds);
 
