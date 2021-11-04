@@ -227,6 +227,7 @@ div-i .i-home-put {
     pointer-events: none !important;
 }
 
-#tabla[data-opt="loadet"]{
-    
+#tabla[data-opt="loadet"] .bazaAB, #tabla[data-opt="loadet"] .div-put *, #tabla[data-opt="loadet"] .div-cocka, #tabla[data-opt="loadet"] div-put-coll {
+    opacity: 0.5 !important;
+    pointer-events: none !important;
 }
