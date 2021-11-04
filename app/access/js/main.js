@@ -106,14 +106,21 @@ var igra = function () {
               });
           });*/
     };
+    this.kucica = function(b,b2){
+
+    };
     this.pomerime_na_Broj = function (br) {
         var brGTA = djig_cube2.getAttribute("data-number"),
             brGTA_this = br.getAttribute("data-fld"),
             number = parseInt(brGTA_this) + parseInt(brGTA),
             br2 = document.querySelector(`#tabla div-put i[data-fld="${number}"]`);
         //alert(number);
-            var br2_str = br2.getAttribute("class"),
-            br_str = br.getAttribute("class");
+        try{
+            var br2_str = br2.getAttribute("class");
+        }catch(e){
+            
+        }
+            var br_str = br.getAttribute("class");
 
         try {
             br2.removeAttribute("onclick");
