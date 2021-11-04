@@ -43,6 +43,6 @@ Neke od komandi za consolu:
 
 # Kontakt informacije:
 
-Ime i prezime: [Marko Nikolić](https://github.com/Marko9827/)
-Lični email: [marko.supergun@gmail.com](marko.supergun@gmail.com)
-Singidunum email: [marko.nikolic17@singimail.rs](marko.nikolic17@singimail.rs)
+- Ime i prezime: [Marko Nikolić](https://github.com/Marko9827/)
+- Lični email: [marko.supergun@gmail.com](marko.supergun@gmail.com)
+- Singidunum email: [marko.nikolic17@singimail.rs](marko.nikolic17@singimail.rs)
