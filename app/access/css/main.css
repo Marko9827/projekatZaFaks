@@ -123,6 +123,7 @@ body {
     padding: 5px;
     width: 25px;
     height: 25px;
+    pointer-events: none;
 }
 
 #tabla div-put div-i {
@@ -255,20 +256,45 @@ div-cocka span {
     font-size: 10px;
 }
 
-div-put[active="1"] .fa-horse-head {
+div-put[active="1"] .fa-horse-head:not(.i-f-home) {
     outline: 2px solid;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     outline-offset: 0px;
     background: var(--bela_prozirna);
+    pointer-events: unset !important;
 }
 
-div-put[active="2"] .fa-user {
+div-put[active="2"] .fa-user:not(.i-f-home) {
     outline: 2px solid;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     outline-offset: 0px;
     background: var(--bela_prozirna);
+    pointer-events: unset !important;
+}
+
+div-zam {
+    position: absolute;
+    font-size: 50px;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 49px;
+    display: flex;
+    text-align: center;
+    pointer-events: none;
+}
+
+div-zam i {
+    display: block !important;
+    margin: auto;
+    font-size: 50px !important;
+    width: auto !important;
+    height: auto !important;
+    color: var(--bojPut);
+    pointer-events: none;
 }

@@ -1,22 +1,24 @@
+window.Igralog = true;
+const tabla = document.getElementById("tabla"),
+    start_rs = document.querySelector("#tabla ul[data-ul='opcije'] li[data-opt='resume_start']"),
+    vremeigre = document.getElementById("vremeigre"),
+    djig_cube2 = document.querySelector(".div-cocka"),
+    div_put = document.querySelector("div-put");
+var dice_rand = {
+    0: "fa-dice-one",
+    1: "fa-dice-one",
+    2: "fa-dice-two",
+    3: "fa-dice-three",
+    4: "fa-dice-four",
+    5: "fa-dice-five",
+    6: "fa-dice-six"
+},
+    vremenkusa,
+    sekundara = 0,
+    kocka = 0;
+
 var igra = function () {
-    window.Igralog = true;
-    const tabla = document.getElementById("tabla"),
-        start_rs = document.querySelector("#tabla ul[data-ul='opcije'] li[data-opt='resume_start']"),
-        vremeigre = document.getElementById("vremeigre"),
-        djig_cube2 = document.querySelector(".div-cocka"),
-        div_put = document.querySelector("div-put");
-    var dice_rand = {
-        0: "fa-dice-one",
-        1: "fa-dice-one",
-        2: "fa-dice-two",
-        3: "fa-dice-three",
-        4: "fa-dice-four",
-        5: "fa-dice-five",
-        6: "fa-dice-six"
-    },
-        vremenkusa,
-        sekundara = 0,
-        kocka = 0;
+
 
     this.stoperica = function (tt) {
         checkTime = function (i) {
@@ -81,13 +83,7 @@ var igra = function () {
 
     };
     this.stop = function () {
-        tabla.setAttribute("data-opt", "loadet");
-        start_rs.innerHTML = "Nova igra";
-        start_rs.setAttribute("data-id", "0");
-        start_rs.setAttribute("onclick", "igra.start();");
-
-        this.logger(`Igra stopirana ${parseInt(start_rs.getAttribute("data-id"))} \n Vreme igre: ${sekundara}`);
-        this.stoperica(false);
+       window.location.reload();
     };
     this.contoller = function () {
         document.addEventListener("contextmenu", function (e) {
@@ -106,7 +102,7 @@ var igra = function () {
               });
           });*/
     };
-    this.kucica = function(b,b2){
+    this.kucica = function (b, b2) {
 
     };
     this.pomerime_na_Broj = function (br) {
@@ -115,12 +111,12 @@ var igra = function () {
             number = parseInt(brGTA_this) + parseInt(brGTA),
             br2 = document.querySelector(`#tabla div-put i[data-fld="${number}"]`);
         //alert(number);
-        try{
+        try {
             var br2_str = br2.getAttribute("class");
-        }catch(e){
-            
+        } catch (e) {
+
         }
-            var br_str = br.getAttribute("class");
+        var br_str = br.getAttribute("class");
 
         try {
             br2.removeAttribute("onclick");
@@ -137,10 +133,22 @@ var igra = function () {
         if (br_str.includes("i-home-put")) {
             br2.setAttribute("class", "i-home-put i-put fas fa-horse-head");
             br2.setAttribute("onclick", `igra.pomerime_na_Broj(this)`);
-         //   br2.setAttribute("data-fld", br.getAttribute("data-fld"));
+            //   br2.setAttribute("data-fld", br.getAttribute("data-fld"));
         } else {
             br2.setAttribute("class", "i-put far fas fa-horse-head");
         }
+        kocka -= 1;
+        if (kocka > 0) {
+            this.msg(`Bacite ponovo kocku. Imate jedno ${kocka} dodatno bacanje`);
+        } else {
+            if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
+                djig_cube2.setAttribute("data-id", 2);
+            } else {
+                djig_cube2.setAttribute("data-id", 1);
+            }
+            this.msg("Bacite kocku.");
+        }
+
         this.event_clicker();
     };
     this.pijun = function (name) {
@@ -153,19 +161,27 @@ var igra = function () {
         }
         var h = name.getAttribute("data-fldh"),
             rplNUM = h.replace(/([A-Z])|[a-z]\w+/, ""),
-            rplNumH = name.getAttribute("data-gr");
-        data_fld = document.querySelector(`#tabla div-put i[data-fld='0']`);
-        data_fld.setAttribute("class", "i-home-put i-put fas fa-horse-head");
+            rplNumH = name.getAttribute("data-gr"),
+            numb_class = "fas fa-horse-head";
+            numb = 0,
+            num = parseInt(djig_cube2.getAttribute("data-id"));
+        if (num == 2) {
+            numb = 22;
+            numb_class =  "far fa-user";
+        }
+
+        data_fld = document.querySelector(`#tabla div-put i[data-fld='${numb}']`);
+        data_fld.setAttribute("class", `i-home-put i-put ${numb_class}`);
         data_fld.setAttribute("data-fldh", h);
         data_fld.setAttribute("onclick", "igra.pomerime_na_Broj(this)");
         name.classList.add("disabled");
         djig_cube2.classList.remove("disabled");
-
+        data_fld.setAttribute("style", "pointer-events:none;");
         div_put.setAttribute("active", rplNumH);
         if (kocka > 0) {
 
             this.msg(`Bacite ponovo kocku. Imate jedno ${kocka} dodatno bacanje`);
-            kocka -= 1;
+
         } else {
             this.msg("Bacite kocku.");
         }
@@ -202,7 +218,7 @@ var igra = function () {
                         djig_cube.setAttribute("data-number", n1);
                         setTimeout(function () {
                             var vvv = Math.round(Math.floor(Math.random() * 6) + 1);
-                            igra.cube_loadet(cub,djig_cube,vvv);
+                            igra.cube_loadet(djig_cube, vvv);
                         }, timeout_seconds);
                     }, timeout_seconds);
 
@@ -210,20 +226,24 @@ var igra = function () {
             }, timeout_seconds);
         }, timeout_seconds);
     };
-    this.cube_loadet = function (cub,djig_cube,vvv) {
+    this.cube_loadet = function (djig_cube, vvv) {
         djig_cube.setAttribute("class", "div-cocka fas " + dice_rand[vvv]);
         new igra.zakljucaj(0);
         //       djig_cube.setAttribute("class", "div-cocka  fas fa-dice");
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
         djig_cube.setAttribute("data-number", vvv);
-        if (cub == 1) {
-            if (vvv == 6) {
-                kocka += 1;
-                document.querySelector(`div-baza${cub}`).classList.add("active");
-                djig_cube.classList.add("disabled");
-                new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
-            }
+        var cub = parseInt(djig_cube2.getAttribute("data-id"));
+
+        if (vvv == 6) {
+            kocka += 1;
+            document.querySelector(`div-baza${cub}`).classList.add("active");
+            djig_cube.classList.add("disabled");
+            new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
         }
+        //  }
+        document.querySelectorAll("div-put .fa-horse-head, div-put .fa-user").forEach(function (v) {
+            v.removeAttribute("style");
+        });
     };
 };
 
