@@ -6,7 +6,8 @@ var igra = function () {
         djig_cube2 = document.querySelector(".div-cocka");
 
     var vremenkusa,
-        sekundara = 0;
+        sekundara = 0,
+        kocka = 0;
 
     this.stoperica = function (tt) {
         checkTime = function (i) {
@@ -27,6 +28,7 @@ var igra = function () {
     };
     this.testiraj = function () {
         this.contoller();
+         this.msg("Bacite kocku.");
     };
     this.zakljucaj = function (w) {
         if (parseInt(w) == 1) {
@@ -98,7 +100,17 @@ var igra = function () {
             data_fld = document.querySelector(`#tabla div-put i[data-fld='0']`);
         data_fld.setAttribute("class", "i-home-put i-put fas fa-horse-head");
         data_fld.setAttribute("data-fldh", h);
+        djig_cube2.classList.remove("disabled");
 
+        if (kocka > 0) {
+            kocka -= 1;
+            this.msg("Bacite ponovo kocku.");
+        } else{
+            this.msg("Bacite kocku.");
+        }
+    };
+    this.msg = function(msg){
+        document.querySelector("div-cocka span").innerHTML = msg;
     };
     this.fa_djig_cube = function (djig_cube) {
         var dice_rand = {
@@ -138,7 +150,10 @@ var igra = function () {
 
                             if (cub == 1) {
                                 if (vvv == 6) {
+                                    kocka += 1;
                                     document.querySelector(`div-baza${cub}`).classList.add("active");
+                                    djig_cube2.classList.add("disabled");
+                                    new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
                                 }
                             }
                         }, timeout_seconds);
