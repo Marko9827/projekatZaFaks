@@ -15,8 +15,9 @@ var dice_rand = {
 },
     vremenkusa,
     sekundara = 0,
-    kocka = 0;
-
+    kocka = 0,
+    AkockaTRi_Puta = 3,
+    BkockaTRi_Puta = 3;
 var igra = function () {
 
 
@@ -83,7 +84,7 @@ var igra = function () {
 
     };
     this.stop = function () {
-       window.location.reload();
+        window.location.reload();
     };
     this.contoller = function () {
         document.addEventListener("contextmenu", function (e) {
@@ -148,26 +149,26 @@ var igra = function () {
             }
             this.msg("Bacite kocku.");
         }
-
+        div_put.removeAttribute("active");
         this.event_clicker();
     };
     this.pijun = function (name) {
         djig_cube2.setAttribute("class", "div-cocka  fas fa-dice");
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
         if (djig_cube2.getAttribute("data-id") == 1) {
-            djig_cube2.setAttribute("data-id", 0);
+            div_put.setAttribute("active", 1);
         } else {
-            djig_cube2.setAttribute("data-id", 1);
+            div_put.setAttribute("active", 2);
         }
         var h = name.getAttribute("data-fldh"),
             rplNUM = h.replace(/([A-Z])|[a-z]\w+/, ""),
             rplNumH = name.getAttribute("data-gr"),
             numb_class = "fas fa-horse-head";
-            numb = 0,
+        numb = 0,
             num = parseInt(djig_cube2.getAttribute("data-id"));
         if (num == 2) {
             numb = 22;
-            numb_class =  "far fa-user";
+            numb_class = "far fa-user";
         }
 
         data_fld = document.querySelector(`#tabla div-put i[data-fld='${numb}']`);
@@ -176,7 +177,7 @@ var igra = function () {
         data_fld.setAttribute("onclick", "igra.pomerime_na_Broj(this)");
         name.classList.add("disabled");
         djig_cube2.classList.remove("disabled");
-        data_fld.setAttribute("style", "pointer-events:none;");
+        data_fld.setAttribute("style", "pointer-events:none !important;");
         div_put.setAttribute("active", rplNumH);
         if (kocka > 0) {
 
@@ -218,13 +219,18 @@ var igra = function () {
                         djig_cube.setAttribute("data-number", n1);
                         setTimeout(function () {
                             var vvv = Math.round(Math.floor(Math.random() * 6) + 1);
+
+
                             igra.cube_loadet(djig_cube, vvv);
+                            kockaTRi_Puta -= 1;
+
                         }, timeout_seconds);
                     }, timeout_seconds);
 
                 }, timeout_seconds);
             }, timeout_seconds);
         }, timeout_seconds);
+
     };
     this.cube_loadet = function (djig_cube, vvv) {
         djig_cube.setAttribute("class", "div-cocka fas " + dice_rand[vvv]);
@@ -233,6 +239,16 @@ var igra = function () {
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
         djig_cube.setAttribute("data-number", vvv);
         var cub = parseInt(djig_cube2.getAttribute("data-id"));
+
+        if (AkockaTRi_Puta > 0) {
+            if (djig_cube2.getAttribute("data-id") == 1) {
+                div_put.setAttribute("active", 1);
+                AkockaTRi_Puta -= 1;
+            } else {
+                div_put.setAttribute("active", 2);
+                BkockaTRi_Puta -= 1;
+            }
+        }
 
         if (vvv == 6) {
             kocka += 1;
