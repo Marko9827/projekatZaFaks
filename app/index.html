@@ -12,12 +12,17 @@
     <link rel="stylesheet" href="./access/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fruktur&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
-<body>
+<body >
 
-    <div id="tabla">
+    <div id="tabla" data-opt="loadet">
         <ul data-ul="opcije">
             <li>Nova igra</li>
             <li><span id="rezlutat">0:0</span><br>
@@ -26,138 +31,123 @@
             <li>Zatvori</li>
         </ul>
 
-        <i class="div-cocka fas fa-dice-two" data-id="0" onclick="igra.fa_djig_cube(this);"></i>
+        <i class="div-cocka fas fa-dice" data-id="0" onclick="igra.fa_djig_cube(this);"></i>
 
-        <div-baza1 class="bazaAB">
-            <i class="fas fa-horse-head"></i>
-            <i class="fas fa-horse-head"></i><br>
-            <i class="fas fa-horse-head"></i>
-            <i class="fas fa-horse-head"></i>
+        <div-baza1 class="bazaAB active">
+            <i data-fldH="1" class="disabled fas fa-horse-head"></i>
+            <i data-fldH="2" class="fas fa-horse-head"></i><br>
+            <i data-fldH="3" class="fas fa-horse-head"></i>
+            <i data-fldH="4" class="fas fa-horse-head"></i>
         </div-baza1>
         <div-baza2 class="bazaAB">
-            <i class="far fa-user"></i>
-            <i class="far fa-user"></i><br>
-            <i class="far fa-user"></i>
-            <i class="far fa-user"></i>
+            <i  data-fldH="1"  class="far fa-user"></i>
+            <i  data-fldH="2"  class="far fa-user"></i><br>
+            <i  data-fldH="3"  class="far fa-user"></i>
+            <i  data-fldH="4"  class="far fa-user"></i>
         </div-baza2>
-        <div-kucice>
-            <kuca1>
-                <i class="fas fa-horse-head"></i>
-                <i class="far fa-circle"></i>
-                <i class="far fa-circle"></i>
-                <i class="far fa-circle"></i>
 
-            </kuca1>
-            <kuca2>
-                <i class="fas fa-horse-head"></i>
-                <i class="far fa-circle"></i>
-                <i class="far fa-circle"></i>
-                <i class="far fa-circle"></i>
-            </kuca2>
-        </div-kucice>
         <div-put>
             <div-put-coll data-ul="top">
                 <div-i data-ui="left">
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i data-id="round" class="i-put far fa-circle"></i>
-
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i data-id="round" class="i-put far fa-dot-circle"></i>
                 </div-i>
                 <div-i data-ui="center">
-                    <i class="i-put far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class=" far fa-circle"></i>
-                    <i data-id="round" class="  far fa-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="disabled far       fa-circle"></i>
+                    <i class="disabled far       fa-circle"></i>
+                    <i class="disabled  far      fa-circle"></i>
+                    <i data-id="round" class=" disabled far fa-circle"></i>
 
                 </div-i>
                 <div-i data-ui="right">
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i data-id="round" class="i-put far fa-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i data-id="round" class="i-put far fa-dot-circle"></i>
 
                 </div-i>
             </div-put-coll>
             <div-put-coll data-ul="bottom">
                 <div-i data-ui="left">
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i data-id="round" class="i-put far fa-circle"></i>
-                
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i data-id="round" class="i-put far fa-dot-circle"></i>
+
                 </div-i>
                 <div-i data-ui="center">
-                    <i class="  far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="   far fa-circle"></i>
-                    <i data-id="round" class="i-put far fa-circle"></i>
-                
+                    <i class="disabled    far fa-circle"></i>
+                    <i class="disabled  far fa-circle"></i>
+                    <i class="disabled  far fa-circle"></i>
+                    <i class="disabled     far fa-circle"></i>
+                    <i data-id="round" class="i-put far fa-dot-circle"></i>
+
                 </div-i>
                 <div-i data-ui="right">
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i data-id="round" class="i-put far fa-circle"></i>
-                
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i data-id="round" class="i-put far fa-dot-circle"></i>
+
                 </div-i>
             </div-put-coll>
             <div-put-coll data-ul="left">
                 <div-i data-ui="left">
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i data-id="round" class="i-put far fa-circle"></i>
-                
+                    <i data-fld="0" data-home="A" class="i-home-put i-put far fa-dot-circle"></i>
+                    <i data-fld="1" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="2" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="3" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="4" data-id="round" class="i-put far fa-dot-circle"></i>
+
                 </div-i>
                 <div-i data-ui="center">
-                    <i class="i-put far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="   far fa-circle"></i>
-                    <i data-id="round" class=" far fa-circle"></i>
-                
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="disabled far fa-circle"></i>
+                    <i class="disabled far fa-circle"></i>
+                    <i class="disabled    far fa-circle"></i>
+                    <i data-id="round" class="disabled far fa-circle"></i>
+
                 </div-i>
                 <div-i data-ui="right">
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i data-id="round" class="i-put far fa-circle"></i>
-                
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i data-id="round" class="i-put far fa-dot-circle"></i>
+
                 </div-i>
             </div-put-coll>
             <div-put-coll data-ul="right">
                 <div-i data-ui="left">
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i data-id="round" class="i-put far fa-circle"></i>
-                
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i data-id="round" class="i-put far fa-dot-circle"></i>
+
                 </div-i>
                 <div-i data-ui="center">
-                    <i class="  far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="far fa-circle"></i>
-                    <i class="  far fa-circle"></i>
-                    <i data-id="round" class="i-put far fa-circle"></i>
-                
+                    <i class="disabled   far fa-circle"></i>
+                    <i class="disabled far fa-circle"></i>
+                    <i class="disabled far fa-circle"></i>
+                    <i class="disabled   far fa-circle"></i>
+                    <i data-id="round" class="i-put far fa-dot-circle"></i>
+
                 </div-i>
                 <div-i data-ui="right">
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i class="i-put far fa-circle"></i>
-                    <i data-id="round" class="i-put far fa-circle"></i>
-                
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i class="i-put far fa-dot-circle"></i>
+                    <i data-id="round" data-home="B" class="i-home-put i-put far fa-dot-circle"></i>
+
                 </div-i>
             </div-put-coll>
         </div-put>

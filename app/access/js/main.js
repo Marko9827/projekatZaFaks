@@ -1,7 +1,7 @@
 var igra = function () {
 
     this.testiraj = function () {
-
+        this.contoller();
     };
     this.zakljucaj = function (w) {
         if (parseInt(w) == 1) {
@@ -16,10 +16,12 @@ var igra = function () {
         return `#${randomColor}`;
     };
     this.start = function () {
-
-    };
+     };
     this.contoller = function(){
-        
+    document.addEventListener("contextmenu",function(e){
+        e.preventDefault();
+        return false;
+    });     
     };
     this.fa_djig_cube = function (djig_cube) {
         var dice_rand = {
@@ -64,4 +66,4 @@ var igra = function () {
 };
 
 var igra = new igra();
-
+igra.testiraj();
