@@ -5,8 +5,16 @@ var igra = function () {
         vremeigre = document.getElementById("vremeigre"),
         djig_cube2 = document.querySelector(".div-cocka"),
         div_put = document.querySelector("div-put");
-
-    var vremenkusa,
+    var dice_rand = {
+        0: "fa-dice-one",
+        1: "fa-dice-one",
+        2: "fa-dice-two",
+        3: "fa-dice-three",
+        4: "fa-dice-four",
+        5: "fa-dice-five",
+        6: "fa-dice-six"
+    },
+        vremenkusa,
         sekundara = 0,
         kocka = 0;
 
@@ -101,9 +109,10 @@ var igra = function () {
     this.pomerime_na_Broj = function (br) {
         var brGTA = djig_cube2.getAttribute("data-number"),
             brGTA_this = br.getAttribute("data-fld"),
-            number = brGTA_this + brGTA,
-            br2 = document.querySelector(`#tabla div-put i[data-fld="${number}"]`),
-            br2_str = br2.getAttribute("class"),
+            number = parseInt(brGTA_this) + parseInt(brGTA),
+            br2 = document.querySelector(`#tabla div-put i[data-fld="${number}"]`);
+        alert(number);
+            var br2_str = br2.getAttribute("class"),
             br_str = br.getAttribute("class");
 
         try {
@@ -113,15 +122,15 @@ var igra = function () {
             br.removeAttribute("onclick");
         } catch (e) { }
 
-        if (br2_str.contains("i-home-put")) {
+        if (br2_str.includes("i-home-put")) {
             br.setAttribute("class", "i-home-put i-put far fa-dot-circle");
         } else {
             br.setAttribute("class", "i-put far fa-dot-circle");
         }
-        if (br_str.contains("i-home-put")) {
+        if (br_str.includes("i-home-put")) {
             br2.setAttribute("class", "i-home-put i-put fas fa-horse-head");
-            br2.setAttribute("onclick", "igra.pomerime_na_Broj(this)");
-            br2.setAttribute("data-fld", br.getAttribute("data-fld"));
+            br2.setAttribute("onclick", `igra.pomerime_na_Broj(this)`);
+         //   br2.setAttribute("data-fld", br.getAttribute("data-fld"));
         } else {
             br2.setAttribute("class", "i-put far fas fa-horse-head");
         }
@@ -142,7 +151,7 @@ var igra = function () {
         data_fld.setAttribute("class", "i-home-put i-put fas fa-horse-head");
         data_fld.setAttribute("data-fldh", h);
         data_fld.setAttribute("onclick", "igra.pomerime_na_Broj(this)");
-
+        name.classList.add("disabled");
         djig_cube2.classList.remove("disabled");
 
         div_put.setAttribute("active", rplNumH);
@@ -159,15 +168,7 @@ var igra = function () {
         document.querySelector("div-cocka span").innerHTML = msg;
     };
     this.fa_djig_cube = function (djig_cube) {
-        var dice_rand = {
-            0: "fa-dice-one",
-            1: "fa-dice-one",
-            2: "fa-dice-two",
-            3: "fa-dice-three",
-            4: "fa-dice-four",
-            5: "fa-dice-five",
-            6: "fa-dice-six"
-        };
+
 
         var timeout_seconds = 100;
 
@@ -194,7 +195,7 @@ var igra = function () {
                         djig_cube.setAttribute("data-number", n1);
                         setTimeout(function () {
                             var vvv = Math.round(Math.floor(Math.random() * 6) + 1);
-                            igra.cube_loadet(vvv);
+                            igra.cube_loadet(cub,djig_cube,vvv);
                         }, timeout_seconds);
                     }, timeout_seconds);
 
@@ -202,17 +203,17 @@ var igra = function () {
             }, timeout_seconds);
         }, timeout_seconds);
     };
-    this.cube_loadet = function (vvv) {
-        djig_cube2.setAttribute("class", "div-cocka fas " + dice_rand[vvv]);
+    this.cube_loadet = function (cub,djig_cube,vvv) {
+        djig_cube.setAttribute("class", "div-cocka fas " + dice_rand[vvv]);
         new igra.zakljucaj(0);
         //       djig_cube.setAttribute("class", "div-cocka  fas fa-dice");
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
-        djig_cube2.setAttribute("data-number", vvv);
+        djig_cube.setAttribute("data-number", vvv);
         if (cub == 1) {
             if (vvv == 6) {
                 kocka += 1;
                 document.querySelector(`div-baza${cub}`).classList.add("active");
-                djig_cube2.classList.add("disabled");
+                djig_cube.classList.add("disabled");
                 new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
             }
         }
