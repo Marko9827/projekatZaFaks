@@ -6,6 +6,12 @@
 * {
     margin: 0px;
     padding: 0px;
+    color: var(--boja1);
+    border-color: var(--boja1);
+}
+
+*:not(i) {
+    font-family: 'Fruktur', cursive;
 }
 
 body {
@@ -32,19 +38,36 @@ body {
     left: 0px;
     top: 0px;
     right: 0px;
+    border-bottom: 2px solid var(--boja1);
+    padding: 10px;
 }
 
 #tabla ul[data-ul="opcije"] li {
     width: 100%;
+    text-align: center;
 }
 
 #tabla .bazaAB {
     font-size: 20px;
     display: inline;
     position: absolute;
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2)) !important;
+    enable-background: new 0 0 512 512 !important;
 }
 
 #tabla div-baza1 {
-    top: 10px;
+    top: 50px;
     font-size: 30px !important;
+}
+
+#tabla div-baza2 {
+    bottom: 10px;
+    font-size: 30px !important;
+    right: 10px;
+}
+
+#tabla ul[data-ul="opcije"] #vremeigre {
+    position: absolute;
+    right: 10px;
+    top: 45px;
 }
