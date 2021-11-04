@@ -20,7 +20,13 @@ U projektu korišćeno:
 - Css
 - Css Animacije
 
-# Za informacije kako teče igra možete videti u consoli web pregledača
+# Pokretanje preko nodjes
+ 1. Idi na ```root``` folder projekta. Tvoj /folder/```projekatZaFaks```/app
+ 2. npm install
+ 3. node server.js
+
+> Za informacije kako teče(**šta se dešava u pozadini**) igra možete videti u consoli web pregledača
+
 Neke od komandi za consolu: 
 
 | Komanda    | Čemu služi    |
@@ -37,6 +43,6 @@ Neke od komandi za consolu:
 
 # Kontakt informacije:
 
-Ime i prezime: Marko Nikolić
-Lični email: marko.supergun@gmail.com
-Singidunum email: marko.nikolic17@singimail.rs
+Ime i prezime: [Marko Nikolić](https://github.com/Marko9827/)
+Lični email: [marko.supergun@gmail.com](marko.supergun@gmail.com)
+Singidunum email: [marko.nikolic17@singimail.rs](marko.nikolic17@singimail.rs)
