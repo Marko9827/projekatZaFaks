@@ -2,7 +2,8 @@ var igra = function () {
     window.Igralog = true;
     const tabla = document.getElementById("tabla"),
         start_rs = document.querySelector("#tabla ul[data-ul='opcije'] li[data-opt='resume_start']"),
-        vremeigre = document.getElementById("vremeigre");
+        vremeigre = document.getElementById("vremeigre"),
+        djig_cube2 = document.querySelector(".div-cocka");
 
     var vremenkusa,
         sekundara = 0;
@@ -21,6 +22,7 @@ var igra = function () {
             }, 1000);
         } else {
             clearInterval(vremenkusa);
+            vremeigre.innerHTML = "0s";
         }
     };
     this.testiraj = function () {
@@ -84,7 +86,19 @@ var igra = function () {
 
     };
     this.pijun = function (name) {
-        djig_cube.setAttribute("class", "div-cocka  fas fa-dice");
+        djig_cube2.setAttribute("class", "div-cocka  fas fa-dice");
+        document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
+        if (djig_cube2.getAttribute("data-id") == 1) {
+            djig_cube2.setAttribute("data-id", 0);
+        } else {
+            djig_cube2.setAttribute("data-id", 1);
+        }
+        var h = name.getAttribute("data-fldh"),
+            rplNUM = h.replace(/[A-Z]/g, ""),
+            data_fld = document.querySelector(`#tabla div-put i[data-fld='0']`);
+        data_fld.setAttribute("class", "i-home-put i-put fas fa-horse-head");
+        data_fld.setAttribute("data-fldh", h);
+
     };
     this.fa_djig_cube = function (djig_cube) {
         var dice_rand = {
