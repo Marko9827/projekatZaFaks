@@ -1,6 +1,7 @@
 :root {
     --boja1: #333;
     --bela: #fff;
+    --bojPut: #546e7a;
 }
 
 * {
@@ -87,6 +88,9 @@ body {
 
 #tabla div-put i {
     font-size: 25px;
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2)) !important;
+    enable-background: new 0 0 512 512 !important;
+  padding: 5px;
 }
 
 #tabla div-put div-i {
@@ -159,4 +163,33 @@ div-put div-i[data-ui="levo"] i {
 #tabla div-put-coll div-i {
     display: grid;
     position: unset;
+}
+
+div-put-coll[data-ul="left"] {
+    display: grid !important;
+    margin-left: 53px !important;
+    width: fit-content !important;
+    position: absolute;
+}
+
+div-put-coll[data-ul="right"] {
+    display: grid !important;
+    margin-right: 53px !important;
+    width: fit-content !important;
+    position: absolute;
+    right: 0px;
+}
+
+div-put-coll[data-ul="bottom"] {
+    position: absolute;
+    bottom: -57px;
+    left: 220px;
+}
+
+div-put-coll[data-ul="left"] div-i, div-put-coll[data-ul="right"] div-i {
+    display: inline-flex !important;
+}
+
+div-i .i-put {
+    color: var(--bojPut);
 }
