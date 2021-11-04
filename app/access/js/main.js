@@ -1,4 +1,7 @@
 var igra = function () {
+    window.Igralog = true;
+    const tabla = document.getElementById("tabla"),
+        start_rs = document.querySelector("#tabla ul[data-ul='opcije'] li[data-opt='resume_start']");
 
     this.testiraj = function () {
         this.contoller();
@@ -16,12 +19,30 @@ var igra = function () {
         return `#${randomColor}`;
     };
     this.start = function () {
-     };
-    this.contoller = function(){
-    document.addEventListener("contextmenu",function(e){
-        e.preventDefault();
-        return false;
-    });     
+        tabla.removeAttribute("data-opt");
+
+    };
+    this.stop = function(){
+      //  tabla.setAttribute("data-opt","loadet");
+
+    };
+    this.contoller = function () {
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+            return false;
+        });
+        start_rs.addEventListener("click", function () {
+
+            if (parseInt(start_rs.getAttribute("data-id")) == 1) {
+                start_rs.setAttribute("data-id", "0");
+                new igra.start();
+                start_rs.innerHtml = "Stopiraj igru";
+            } else {
+                start_rs.setAttribute("data-id", "1");
+                new igra.stop();
+                start_rs.innerHtml = "Nova igra";
+            }
+        });
     };
     this.fa_djig_cube = function (djig_cube) {
         var dice_rand = {
