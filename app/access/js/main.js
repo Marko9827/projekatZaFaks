@@ -1,5 +1,5 @@
 window.Igralog = true;
-var tabla = document.getElementById("tabla"),
+const tabla = document.getElementById("tabla"),
     start_rs = document.querySelector("#tabla ul[data-ul='opcije'] li[data-opt='resume_start']"),
     vremeigre = document.getElementById("vremeigre"),
     djig_cube2 = document.querySelector(".div-cocka"),
@@ -458,23 +458,32 @@ var igra = function () {
         data_fld.setAttribute("style", "pointer-events:none !important;");
         div_put.setAttribute("active", rplNumH);
         if (podaci.kocka > 0) {
-
+            document.querySelector("#tabla div-cocka i").classList.remove("disabled");
             this.msg(`Bacite ponovo kocku. Imate jedno ${podaci.kocka} dodatno bacanje`);
 
         } else {
 
             document.querySelector("div-baza2").classList.remove("active");
             document.querySelector("div-baza1").classList.remove("active");
-
-            if (podaci.dodatna_bacanja.A == 0) {
-                document.querySelector("div-baza2").classList.add("active");
-                document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
+            if (djig_cube2.getAttribute("data-id") == 1) {
+                if (podaci.dodatna_bacanja.A > 0) {
+                    document.querySelector("div-baza2").classList.add("active");
+                    document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
             <span data-num-id="1">Bacite kocku.</span>`;
+                }
+                if (podaci.dodatna_bacanja.A == 0){
+                    djig_cube2.setAttribute("data-id",2);
+                }
             }
-            if (podaci.dodatna_bacanja.B == 0) {
-                document.querySelector("div-baza1").classList.add("active");
-                document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
+            if (djig_cube2.getAttribute("data-id") == 2) {
+                if (podaci.dodatna_bacanja.B > 0) {
+                    document.querySelector("div-baza1").classList.add("active");
+                    document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
             <span data-num-id="1">Bacite kocku.</span>`;
+                }
+                if (podaci.dodatna_bacanja.B == 0) {
+                    djig_cube2.setAttribute("data-id", 1);
+                }
             }
             this.msg("Bacite kocku.");
         }
