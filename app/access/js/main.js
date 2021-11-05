@@ -222,7 +222,8 @@ var igra = function () {
                 new igra.msg(v.pijun,v.baza);
             }
         });
-        div_put.removeAttribute("active");
+        document.querySelector("div-put").removeAttribute("active");
+        document.querySelector("#tabla div-cocka i").classList.remove("disabled");
         this.contoller_novi();
         
     };
@@ -331,6 +332,9 @@ var igra = function () {
         } else {
             div_put.setAttribute("active", 2);
         }
+
+        
+
         var h = name.getAttribute("data-fldh"),
             rplNUM = h.replace(/([A-Z])|[a-z]\w+/, ""),
             rplNumH = name.getAttribute("data-gr"),
