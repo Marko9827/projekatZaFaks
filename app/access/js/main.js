@@ -186,7 +186,12 @@ var igra = function () {
 
     };
     this.stop = function () {
-        window.location.reload();
+        podaci.pijuni.forEach(function (v) {
+           v.baza = true;
+           v.kucica = false;
+
+        });
+        this.contoller_novi();
     };
     this.contoller = function () {
         document.addEventListener("contextmenu", function (e) {
