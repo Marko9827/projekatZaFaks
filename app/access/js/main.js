@@ -21,8 +21,8 @@ var vremenkusa,
         },
         kocka: 0,
         dodatna_bacanja: {
-            A: 3,
-            B: 3
+            A: 0,
+            B: 0
         },
         kucice: {
             A: false,
@@ -188,8 +188,8 @@ var igra = function () {
         new igra.contoller_novi();
         document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
             <span data-num-id="1">Bacite kocku.</span>`;
-        podaci.dodatna_bacanja.A = 3;
-        podaci.dodatna_bacanja.B = 3;
+        podaci.dodatna_bacanja.A = 0;
+        podaci.dodatna_bacanja.B = 0;
         document.querySelector("li[data-opt='resume_start']").setAttribute("onclick", "igra.start();");
         document.querySelector("li[data-opt='resume_start']").innerHTML = "Nova igra";
 
@@ -324,6 +324,7 @@ var igra = function () {
         });
         console.clear();
         console.log(podaci.pijuni);
+
     };
     this.pomerime_na_Broj_novi = function (br, grupa, pijun) {
         var polje = document.querySelector(` div-put i[data-fld='${br}']`);
@@ -491,6 +492,9 @@ var igra = function () {
         v.removeAttribute("data-fldh");
         v.removeAttribute("data-group");
 
+
+
+
     };
     this.pijun = function (name) {
         djig_cube2.setAttribute("class", "div-cocka  fas fa-dice");
@@ -516,7 +520,7 @@ var igra = function () {
         if (rplNumH == 1) {
             new igra.pomerime_na_Broj_novi(0, "A", h);
         } else {
-            new igra.pomerime_na_Broj_novi(0, "B", h);
+            new igra.pomerime_na_Broj_novi(22, "B", h);
 
         }
         data_fld = document.querySelector(`#tabla div-put i[data-fld='${numb}']`);
@@ -526,7 +530,7 @@ var igra = function () {
         if (rplNumH == 1) {
             data_fld.setAttribute("onclick", `igra.menjanje_baze_broj(0,"A","${h}"); igra.pijun_empty(this);`); //pomerime_na_Broj(this)");
         } else {
-            data_fld.setAttribute("onclick", `igra.menjanje_baze_broj(0,"B","${h}"); igra.pijun_empty(this);`); //pomerime_na_Broj(this)");
+            data_fld.setAttribute("onclick", `igra.menjanje_baze_broj(22,"B","${h}"); igra.pijun_empty(this);`); //pomerime_na_Broj(this)");
         }
         name.classList.add("disabled");
         djig_cube2.classList.remove("disabled");
@@ -541,16 +545,19 @@ var igra = function () {
             document.querySelector("div-baza2").classList.remove("active");
             document.querySelector("div-baza1").classList.remove("active");
             if (djig_cube2.getAttribute("data-id") == 1) {
+                podaci.dodatna_bacanja.A = 1;
                 if (podaci.dodatna_bacanja.A > 0) {
                     document.querySelector("div-baza2").classList.add("active");
                     document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
             <span data-num-id="1">Bacite kocku.</span>`;
+
                 }
                 if (podaci.dodatna_bacanja.A == 0) {
                     djig_cube2.setAttribute("data-id", 2);
                 }
             }
             if (djig_cube2.getAttribute("data-id") == 2) {
+                podaci.dodatna_bacanja.B = 1;
                 if (podaci.dodatna_bacanja.B > 0) {
                     document.querySelector("div-baza1").classList.add("active");
                     document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
@@ -641,6 +648,9 @@ var igra = function () {
         //}
 
         if (vvv == 6) {
+
+
+
             podaci.kocka = 0;
             podaci.kocka += 1;
             document.querySelector(`div-baza${cub}`).classList.add("active");
@@ -649,19 +659,28 @@ var igra = function () {
             console.log(podaci.dodatna_bacanja);
             if (djig_cube2.getAttribute("data-id") == 1) {
                 div_put.setAttribute("active", 1);
-
-                podaci.dodatna_bacanja.A += 1;
+                if (podaci.dodatna_bacanja.A == 0) {
+                    podaci.dodatna_bacanja.A += 1;
+                }
 
             } else {
                 div_put.setAttribute("active", 2);
 
-                podaci.dodatna_bacanja.B += 1;
+                if (podaci.dodatna_bacanja.B == 0) {
+                    podaci.dodatna_bacanja.B += 1;
+                }
             }
             document.querySelector(`div-baza${cub}`).classList.add("active");
-            djig_cube.classList.add("disabled");
+            // djig_cube.classList.add("disabled");
         } else {
             if (podaci.kocka > 0) {
                 podaci.kocka -= 1;
+            }
+            if (djig_cube2.getAttribute("data-id") == 1) {
+                podaci.dodatna_bacanja.A -= 1;
+            }
+            if (djig_cube2.getAttribute("data-id") == 2) {
+                podaci.dodatna_bacanja.B -= 1;
             }
             //document.querySelector(`div-baza${cub}`).classList.add("active");
             if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
@@ -682,6 +701,26 @@ var igra = function () {
             v.removeAttribute("style");
         });
         console.log(podaci.dodatna_bacanja);
+        igra.kosledecibacaKocku(djig_cube2.getAttribute("data-id"));
+    };
+    this.kosledecibacaKocku = function (h) {
+        document.querySelector("div-baza1").classList.remove("active");
+        document.querySelector("div-baza2").classList.remove("active");
+
+        if (podaci.dodatna_bacanja.A == 0) {
+            document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
+            <span data-num-id="1">Bacite kocku.</span>`;
+            if (parseInt(h) == 2) {
+                document.querySelector("div-baza1").classList.add("active");
+            }
+        }
+        if (podaci.dodatna_bacanja.B == 0) {
+            document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
+            <span data-num-id="1">Bacite kocku.</span>`;
+            if (parseInt(h) == 1) {
+                document.querySelector("div-baza2").classList.add("active");
+            }
+        }
     };
 };
 
