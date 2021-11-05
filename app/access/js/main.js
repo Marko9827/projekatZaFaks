@@ -468,14 +468,18 @@ var igra = function () {
         if (podaci.kocka > 0) {
             this.msg(`Bacite ponovo kocku. Imate jedno ${kocka} dodatno bacanje`);
         } else {
-            if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
-                djig_cube2.setAttribute("data-id", 2);
-            } else {
-                djig_cube2.setAttribute("data-id", 1);
+            if (parseInt($("#tabla div-cocka i").attr("data-dbacanje")) > 0) {
+                if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
+                    djig_cube2.setAttribute("data-id", 2);
+                } else {
+                    djig_cube2.setAttribute("data-id", 1);
+                }
             }
             this.msg("Bacite kocku.");
         }
-        div_put.removeAttribute("active");
+        if (parseInt($("#tabla div-cocka i").attr("data-dbacanje")) == 0) {
+            div_put.removeAttribute("active");
+        }
         this.event_clicker();
     };
     this.pijun_novi = function (name) {
@@ -538,14 +542,18 @@ var igra = function () {
 
             djig_cube2.classList.remove("disabled");
             djig_cube2.setAttribute("data-id", 2);
-            div_put.removeAttribute("active");
+            if (document.querySelectorAll(".pijun_A").length == 0) {
+                div_put.removeAttribute("active");
+            }
             //}
         }
         //  if (parseInt(djig_cube2.getAttribute("data-id")) == 2) {
         if (parseInt(djig_cube2.getAttribute("data-id")) == 2 ||
             parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
             djig_cube2.classList.remove("disabled");
-            div_put.removeAttribute("active");
+            if (document.querySelectorAll(".pijun_B").length == 0) {
+                div_put.removeAttribute("active");
+            }
             djig_cube2.setAttribute("data-id", 1);
 
             //djig_cube2.setAttribute("data-id", 1);
@@ -568,12 +576,12 @@ var igra = function () {
         var h = name.getAttribute("data-fldh"),
             rplNUM = h.replace(/([A-Z])|[a-z]\w+/, ""),
             rplNumH = name.getAttribute("data-gr"),
-            numb_class = "fas fa-horse-head";
+            numb_class = "pijun_A fas fa-horse-head";
         numb = 0,
             num = parseInt(djig_cube2.getAttribute("data-id"));
         if (name.getAttribute("data-group") == "B") {
             numb = 22;
-            numb_class = "far fa-user";
+            numb_class = "pijun_B far fa-user";
         }
         if (rplNumH == 1) {
             new igra.pomerime_na_Broj_novi(0, "A", h);
@@ -736,7 +744,7 @@ var igra = function () {
 
 
         } else {
-          
+
             /*
                         if (podaci.kocka > 0) {
                             podaci.kocka -= 1;
@@ -795,7 +803,7 @@ var igra = function () {
         if (vvv !== 6) {
             igra.kosledecibacaKocku(djig_cube2.getAttribute("data-id"));
         }
-        
+
         if (parseInt($("#tabla div-cocka i").attr("data-Dbacanje")) == 0) {
             if (parseInt($("#tabla div-cocka i").attr("data-id")) == 1) {
                 $("#tabla div-cocka i").attr("data-id", 2);

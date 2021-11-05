@@ -12,12 +12,12 @@ Za pokretanje projekta morate imati instaliran nodejs. Pa onda da startujete ser
 
 U projektu korišćeno:
 
-- FontAwesome Icons
+- FontAwesome Icons (UI)
 - Nodejs
 - NPM(Jquery(podrška za UI i kod gde neće 'obični' JS),FontAwesome,express )
-- JavaScript
-- Css
-- Css Animacije
+- JavaScript 
+- Css (UI)
+- Css Animacije (UI)
 
 # Pokretanje preko nodjes
  1. Idi na ```root``` folder projekta. Tvoj /folder/```projekatZaFaks```
