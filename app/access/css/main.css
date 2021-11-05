@@ -87,6 +87,10 @@ body {
     z-index: 33333;
 }
 
+.green_test {
+    color: var(--zelena) !important;
+}
+
 #tabla .bazaAB i {
     pointer-events: none;
 }

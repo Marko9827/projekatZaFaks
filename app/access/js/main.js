@@ -1,5 +1,5 @@
 window.Igralog = true;
-const tabla = document.getElementById("tabla"),
+var tabla = document.getElementById("tabla"),
     start_rs = document.querySelector("#tabla ul[data-ul='opcije'] li[data-opt='resume_start']"),
     vremeigre = document.getElementById("vremeigre"),
     djig_cube2 = document.querySelector(".div-cocka"),
@@ -143,6 +143,29 @@ var igra = function () {
         this.contoller();
         this.contoller_novi();
         this.msg("Bacite kocku.");
+        var i = 0,
+            i_K = 0,
+            intH = setInterval(() => {
+                i_k++;
+                if(i_k == 4){
+                clearInterval(intH);
+                }
+            },150),
+            int = setInterval(() => {
+                i++;
+                document.querySelectorAll("#tabla div-put i").forEach(function (v) {
+                    v.classList.remove("green_test");
+                });
+                document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("green_test");
+                if (i == 44) {
+                    clearInterval(int);
+                    document.querySelectorAll("#tabla div-put i").forEach(function (v) {
+                        v.classList.remove("green_test");
+                    });
+                }
+            }, 150);
+
+
     };
     this.zakljucaj = function (w) {
         if (parseInt(w) == 1) {
@@ -199,6 +222,8 @@ var igra = function () {
             this.contoller_novi();
             document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
             <span data-num-id="1">Bacite kocku.</span>`;
+            podaci.dodatna_bacanja.A = 3;
+            podaci.dodatna_bacanja.B = 3;
         }
     };
     this.contoller = function () {
