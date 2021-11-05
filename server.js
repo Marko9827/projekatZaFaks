@@ -1,8 +1,17 @@
 var express = require("express"),
 app = express(),
-fs = require("path"),
-port = 3030;
+open = require("open"),
+path = require("path"),
+port = process.env.PORT || 8080;
+ 
+app.get("/",function(req,res){
+    res.sendFile(path.join(__dirname, "/index.html"));
+    console.log(req.url);
+});
 
-app.get("/", (req,res) =>{
-    res.send
+app.listen(port,function(){
+    var lg = "",
+        url = "http://localhost:" + port;
+    open(url);
+    console.log(url);
 });

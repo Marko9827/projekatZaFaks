@@ -3,8 +3,9 @@
     --bela: #fff;
     --bojPut: #546e7a;
     --zelena: #4caf50;
-    --zuta: #324;
+    --naradzasta: rgb(255, 81, 0);
     --plava: blue;
+    --ljubivasta:purple;
     --bela_prozirna: rgb(255 255 255 / 68%);
 }
 
@@ -87,6 +88,9 @@ body {
     z-index: 33333;
 }
 
+.purle_test {
+    color:var(--ljubivasta) !important;
+}
 .green_test {
     color: var(--zelena) !important;
 }

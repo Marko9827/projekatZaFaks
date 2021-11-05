@@ -139,50 +139,80 @@ var igra = function () {
             vremeigre.innerHTML = "0s";
         }
     };
+    this.testiraj_kucice = function (vreme) {
+
+        var i_K = 5, int2 = setInterval(() => {
+
+            try {
+                i_K--;
+                var hv = document.querySelector(`#tabla div-put i[data-home='${i_K}']`);
+
+                document.querySelectorAll(`#tabla div-put i`).forEach(function (v2) {
+                    v2.classList.remove("green_test");
+                });
+
+                if (hv.classList.contains("i-f-ignore-me-1")) {
+                    hv.classList.add("green_test");
+                }
+
+
+                if (i_K == 0) {
+                    clearInterval(int2);
+                    document.querySelector("div-zam i").classList.add("green_test");
+
+                    setTimeout(() => {
+                        document.querySelector("div-zam i").classList.remove("green_test");
+                        document.querySelector("li[data-opt='resume_start']").setAttribute("onclick", "igra.start();");
+                        document.querySelector("li[data-opt='resume_start']").innerHTML = "Nova igra";
+
+                    }, 1500);
+                }
+            } catch (e) {
+                clearInterval(int2);
+                document.querySelector("li[data-opt='resume_start']").setAttribute("onclick", "igra.start();");
+                document.querySelector("li[data-opt='resume_start']").innerHTML = "Nova igra";
+
+
+            }
+        }, vreme);
+    };
     this.testiraj = function () {
         this.contoller();
         this.contoller_novi();
         this.msg("Bacite kocku.");
+
         var i = 0,
-            i_K = 0,
-            interval1 = true,
-            interval2 = true,
+            i_K = 4,
+            intervalFX = true,
             int = setInterval(() => {
                 try {
                     i++;
                     document.querySelectorAll("#tabla div-put i").forEach(function (v) {
                         v.classList.remove("green_test");
+                        v.classList.remove("purle_test");
+                        v.classList.remove("naradzasta");
                     });
-                    document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("green_test");
+                    if (i == 7 || i == 4) {
+                        document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("purle_test");
+                    } else if (i == 0 || i == 22) {
+                        document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("naradzasta");
+                    } else {
+                        document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("green_test");
+                    }
                     if (i == 43) {
 
                         document.querySelectorAll("#tabla div-put i").forEach(function (v) {
+
                             v.classList.remove("green_test");
+                            v.classList.remove("purle_test");
+                            v.classList.remove("naradzasta");
                         });
-                        document.querySelector("li[data-opt='resume_start']").setAttribute("onclick", "igra.start();");
-                        document.querySelector("li[data-opt='resume_start']").innerHTML = "Nova igra";
 
-                        var intH = setInterval(() => {
-                            if (interval2 == true) {
-                                i_K++;
-                                var hv = document.querySelectorAll(`#tabla div-put i[data-home='${i_K}']`);
-
-                                if (hv.classList.contains("i-f-ignore-me-1")) {
-                                    hv.classList.remove("green_test");
-                                }
-
-                                document.querySelectorAll(`#tabla div-put i[data-home='${i_K}']`).forEach(function (v2) {
-                                    if (v.classList.contains("i-f-ignore-me-1")) {
-                                        v2.classList.remove("green_test");
-                                    }
-                                });
-                                if (i_K == 4) {
-                                    clearInterval(intH);
-                                }
-                            }
-                        }, 150);
+                        igra.testiraj_kucice(150);
                         clearInterval(int);
                     }
+
+
                 } catch (e) { }
             }, 150);
 
@@ -415,7 +445,7 @@ var igra = function () {
         data_fld.setAttribute("class", `i-home-put i-put ${numb_class}`);
         data_fld.setAttribute("data-fldh", h);
         data_fld.setAttribute("data-group", name.getAttribute("data-group"));
-        data_fld.setAttribute("onclick", "igra.contoller_novi()");//pomerime_na_Broj(this)");
+        data_fld.setAttribute("onclick", "igra.contoller_novi()"); //pomerime_na_Broj(this)");
         name.classList.add("disabled");
         djig_cube2.classList.remove("disabled");
         data_fld.setAttribute("style", "pointer-events:none !important;");
@@ -430,11 +460,13 @@ var igra = function () {
             document.querySelector("div-baza1").classList.remove("active");
 
             if (podaci.dodatna_bacanja.A == 0) {
-                document.querySelector("div-baza2").classList.add("active"); document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
+                document.querySelector("div-baza2").classList.add("active");
+                document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
             <span data-num-id="1">Bacite kocku.</span>`;
             }
             if (podaci.dodatna_bacanja.B == 0) {
-                document.querySelector("div-baza1").classList.add("active"); document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
+                document.querySelector("div-baza1").classList.add("active");
+                document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
             <span data-num-id="1">Bacite kocku.</span>`;
             }
             this.msg("Bacite kocku.");
