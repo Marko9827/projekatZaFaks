@@ -37,7 +37,7 @@ var vremenkusa,
         {
             pijun: "A2",
             grupa: "A",
-            baza: true,
+            baza: 4,
             kucica: false
 
         },
@@ -71,7 +71,7 @@ var vremenkusa,
             pijun: "B3",
 
             grupa: "B",
-            baza: true,
+            baza: 30,
             kucica: false
 
         },
@@ -112,7 +112,7 @@ var igra = function () {
             var grupa = 1;
 
             if (v.baza !== true) {
-                igra.pomerime_na_Broj_novi(v.baza, v.grupa);
+                igra.pomerime_na_Broj_novi(v.baza, v.grupa,v.pijun);
                 document.querySelector(`#tabla .bazaAB i[data-fldh="${v.pijun}"]`).classList.add("disabled");
             } else {
                 document.querySelector(`#tabla .bazaAB i[data-fldh="${v.pijun}"]`).classList.remove("disabled");
@@ -200,27 +200,32 @@ var igra = function () {
            try{   br.removeEventListener("click");
           }catch(e){}
               br.addEventListener("click", function (v) {
-                  v.preventDefault();
+                  v.preventDefault();broj_kocke
                   new igra.pomerime_na_Broj(v, br);
               });
           });*/
+    };
+    this.broj_kocke = function(){
+        return parseInt(djig_cube2.getAttribute("data-number"));
     };
     this.kucica = function (b, b2) {
 
     };
 
     this.menjanje_baze_broj = function (br, pijun) {
-        var brGTA = djig_cube2.getAttribute("data-number"),
+        var brGTA = this.broj_kocke();
             number = parseInt(br) + parseInt(brGTA);
 
         podaci.pijuni.forEach(function (v) {
             if (v.pijun == pijun) {
                 v.baza = number;
+                new igra.msg(v.pijun,v.baza);
             }
         });
         this.contoller_novi();
+        
     };
-    this.pomerime_na_Broj_novi = function (br, grupa) {
+    this.pomerime_na_Broj_novi = function (br, grupa,pijun) {
         var polje = document.querySelector(`#tabla div-put i[data-fld='${br}']`),
             temp = polje.getAttribute("class");
 
@@ -236,20 +241,20 @@ var igra = function () {
         if (br == 0 || br == 22) {
             if (grupa == "A") {
                 polje.setAttribute("class", "i-home-put i-put fas fa-horse-head");
-                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${grupa}")`);
+                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${pijun}")`);
             } else {
                 polje.setAttribute("class", "i-home-put i-put far fa-user");
-                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${grupa}")`);
+                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${pijun}")`);
 
             }
         } else {
             if (grupa == "A") {
                 polje.setAttribute("class", "i-put fas fa-horse-head");
-                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${grupa}")`);
+                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${pijun}")`);
 
             } else {
                 polje.setAttribute("class", "i-put far fa-user");
-                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${grupa}")`);
+                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${pijun}")`);
             }
         }
     };
