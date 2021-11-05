@@ -222,6 +222,7 @@ var igra = function () {
                 new igra.msg(v.pijun,v.baza);
             }
         });
+        div_put.removeAttribute("active");
         this.contoller_novi();
         
     };
@@ -341,6 +342,7 @@ var igra = function () {
             numb_class = "far fa-user";
         }
 
+        new igra.pomerime_na_Broj_novi(0,h);
 
         data_fld = document.querySelector(`#tabla div-put i[data-fld='${numb}']`);
         data_fld.setAttribute("class", `i-home-put i-put ${numb_class}`);
@@ -414,7 +416,7 @@ var igra = function () {
         var cub = parseInt(djig_cube2.getAttribute("data-id"));
 
         //  - if (AkockaTRi_Puta > 0) {
-        if (djig_cube2.getAttribute("data-id") == 1) {
+        if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
             div_put.setAttribute("active", 1);
             if (podaci.dodatna_bacanja.A > 0) {
                 podaci.dodatna_bacanja.A -= 1;
@@ -426,9 +428,12 @@ var igra = function () {
             }
         }
 
+        document.querySelector(`div-baza1`).classList.remove("active");
+        document.querySelector(`div-baza2`).classList.remove("active");
         //}
 
         if (vvv == 6) {
+            podaci.kocka = 0;
             podaci.kocka += 1;
             document.querySelector(`div-baza${cub}`).classList.add("active");
             djig_cube.classList.add("disabled");
@@ -445,13 +450,15 @@ var igra = function () {
                     podaci.dodatna_bacanja.B += 1;
                 }
             }
+            document.querySelector(`div-baza${cub}`).classList.add("active");
+            djig_cube.classList.add("disabled");
         } else {
             if (podaci.kocka > 0) {
                 podaci.kocka -= 1;
             }
-            document.querySelector(`div-baza${cub}`).classList.add("active");
+            //document.querySelector(`div-baza${cub}`).classList.add("active");
             djig_cube.classList.add("disabled");
-            new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
+            new igra.msg("Odaberi pijuna sa kojim ćeš da načiniš potez!");
         }
         //  }
         document.querySelectorAll("div-put .fa-horse-head, div-put .fa-user").forEach(function (v) {
