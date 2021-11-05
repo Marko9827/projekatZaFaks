@@ -14,7 +14,7 @@ U projektu korišćeno:
 
 - FontAwesome Icons
 - Nodejs
-- NPM(FontAwesome,express )
+- NPM(Jquery(podrška za UI i kod gde neće 'obični' JS),FontAwesome,express )
 - JavaScript
 - Css
 - Css Animacije
