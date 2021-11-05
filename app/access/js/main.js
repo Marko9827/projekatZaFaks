@@ -376,9 +376,17 @@ var igra = function () {
         div_put.setAttribute("active", rplNumH);
         if (podaci.kocka > 0) {
 
-            this.msg(`Bacite ponovo kocku. Imate jedno ${data.kocka} dodatno bacanje`);
+            this.msg(`Bacite ponovo kocku. Imate jedno ${podaci.kocka} dodatno bacanje`);
 
         } else {
+            document.querySelector("div-baza2").classList.remove("active");
+            document.querySelector("div-baza1").classList.remove("active");
+            if (rplNumH == 1){
+                document.querySelector("div-baza2").classList.add("active");
+            } 
+            if (rplNumH == 2) {
+                document.querySelector("div-baza1").classList.add("active");
+            }
             this.msg("Bacite kocku.");
         }
         this.event_clicker();
