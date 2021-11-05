@@ -268,6 +268,7 @@ var igra = function () {
         if (window.Igralog == true) {
             console.log(`${this.vremeDatum()}, ${msg}`);
         }
+        return false;
     };
     this.log = function (n) {
         var nm = parseInt(n);
@@ -299,7 +300,7 @@ var igra = function () {
             igra.stop_hardcore();
         }
     };
-    this.cancel = function(){
+    this.cancel = function () {
         if (window.confirm("Sigurni ste za zatvaranje igre?\n Vaš rezlutat će biti izgubljen! (ZATVARA KARTICU)")) {
             window.close();
         }
@@ -342,13 +343,13 @@ var igra = function () {
             }
         });
         console.clear();
-        console.log(podaci.pijuni);
+        igra.logger(JSON.stringify(podaci.pijuni), JSON.stringify(podaci.dodatna_bacanja));
 
     };
     this.pomerime_na_Broj_novi = function (br, grupa, pijun) {
         var polje = document.querySelector(` div-put i[data-fld='${br}']`);
         temp = polje.getAttribute("class");
-        console.log(br, grupa, pijun);
+        igra.logger(br, grupa, pijun);
 
         if (polje.getAttribute("data-fld") > 0) {
             var h = br - 1;
@@ -511,9 +512,7 @@ var igra = function () {
         v.removeAttribute("data-fldh");
         v.removeAttribute("data-group");
 
-
-
-
+      
     };
     this.pijun = function (name) {
         djig_cube2.setAttribute("class", "div-cocka  fas fa-dice");
@@ -586,6 +585,7 @@ var igra = function () {
             this.msg("Bacite kocku.");
         }
         this.event_clicker();
+        djig_cube2.setAttribute("data-number", 0);
     };
     this.msg = function (msg) {
         document.querySelector("div-cocka span").innerHTML = msg;
@@ -672,7 +672,7 @@ var igra = function () {
             document.querySelector(`div-baza${cub}`).classList.add("active");
             djig_cube.classList.add("disabled");
             new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
-             igra.logger(podaci.dodatna_bacanja + "\n" + cub);
+            igra.logger(JSON.stringify(podaci.dodatna_bacanja) + "\n" + cub);
 
             if (djig_cube2.getAttribute("data-id") == 1) {
                 div_put.setAttribute("active", 1);
@@ -693,6 +693,8 @@ var igra = function () {
             // djig_cube.classList.add("disabled");
             igra.logger(podaci.dodatna_bacanja + "\n" + cub);
         } else {
+            igra.kosledecibacaKocku(djig_cube2.getAttribute("data-id"));
+
             if (podaci.kocka > 0) {
                 podaci.kocka -= 1;
             }
@@ -720,21 +722,36 @@ var igra = function () {
                     new igra.msg("Odaberi pijuna sa kojim ćeš da načiniš potez!");
                 }
             }
-            
+            djig_cube2.classList.add("disabled");
         }
         //  }
         document.querySelectorAll("div-put .fa-horse-head, div-put .fa-user").forEach(function (v) {
             v.removeAttribute("style");
         });
-        console.log(podaci.dodatna_bacanja);
-     //   igra.kosledecibacaKocku(djig_cube2.getAttribute("data-id"));
+        igra.logger(JSON.stringify(podaci.dodatna_bacanja), djig_cube.getAttribute("data-number"));
+        
     };
     this.kosledecibacaKocku = function (h) {
         document.querySelector("div-baza1").classList.remove("active");
         document.querySelector("div-baza2").classList.remove("active");
 
         var data_id = djig_cube2.getAttribute("data-id");
-      
+        if (djig_cube2.getAttribute("data-id") == 1) {
+            if (podaci.dodatna_bacanja.A == 0) {
+                djig_cube2.classList.remove("disabled");
+                djig_cube2.setAttribute("data-id", 2);
+
+              //  div_put.setAttribute("active", 2);
+            }
+        }
+        if (djig_cube2.getAttribute("data-id") == 2) {
+            if (podaci.dodatna_bacanja.B == 0) {
+                djig_cube2.classList.remove("disabled");
+                //div_put.setAttribute("active", 1);
+                djig_cube2.setAttribute("data-id", 1);
+
+            }
+        }
         /* if (podaci.dodatna_bacanja.A >= 0) {
               
              document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="${data_id}"
