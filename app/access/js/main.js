@@ -65,7 +65,7 @@ var vremenkusa,
 
             grupa: "B",
             baza: true,
-            kucica: false
+            kucica: true
 
         }, {
             pijun: "B3",
@@ -208,12 +208,16 @@ var igra = function () {
                     document.querySelectorAll("#tabla div-put i").forEach(function (v) {
                         v.classList.remove("green_test");
                         v.classList.remove("purle_test");
-                        v.classList.remove("naradzasta");
+                        v.classList.remove("naradzasta_test");
+                        v.classList.remove("roza_test");
+
                     });
                     if (i == 7 || i == 4) {
                         document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("purle_test");
                     } else if (i == 0 || i == 22) {
-                        document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("naradzasta");
+                        document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("naradzasta_test");
+                    } else if (i == 30) {
+                        document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("roza_test");
                     } else {
                         document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("green_test");
                     }
@@ -223,7 +227,8 @@ var igra = function () {
 
                             v.classList.remove("green_test");
                             v.classList.remove("purle_test");
-                            v.classList.remove("naradzasta");
+                            v.classList.remove("naradzasta_test");
+                            v.classList.remove("roza_test");
 
                         });
 
@@ -546,24 +551,21 @@ var igra = function () {
             document.querySelector("div-baza1").classList.remove("active");
             if (djig_cube2.getAttribute("data-id") == 1) {
                 podaci.dodatna_bacanja.A = 1;
-                if (podaci.dodatna_bacanja.A > 0) {
+                if (podaci.dodatna_bacanja.A == 0) {
                     document.querySelector("div-baza2").classList.add("active");
                     document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
             <span data-num-id="1">Bacite kocku.</span>`;
 
-                }
-                if (podaci.dodatna_bacanja.A == 0) {
                     djig_cube2.setAttribute("data-id", 2);
                 }
             }
             if (djig_cube2.getAttribute("data-id") == 2) {
                 podaci.dodatna_bacanja.B = 1;
-                if (podaci.dodatna_bacanja.B > 0) {
+                if (podaci.dodatna_bacanja.B == 0) {
                     document.querySelector("div-baza1").classList.add("active");
                     document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
             <span data-num-id="1">Bacite kocku.</span>`;
-                }
-                if (podaci.dodatna_bacanja.B == 0) {
+
                     djig_cube2.setAttribute("data-id", 1);
                 }
             }
@@ -659,16 +661,18 @@ var igra = function () {
             console.log(podaci.dodatna_bacanja);
             if (djig_cube2.getAttribute("data-id") == 1) {
                 div_put.setAttribute("active", 1);
-                if (podaci.dodatna_bacanja.A == 0) {
-                    podaci.dodatna_bacanja.A += 1;
-                }
-
+                // if (podaci.dodatna_bacanja.A == 0) {
+                podaci.dodatna_bacanja.A += 1;
+                // }
+                document.querySelector(`div-baza1`).classList.add("active");
             } else {
                 div_put.setAttribute("active", 2);
 
-                if (podaci.dodatna_bacanja.B == 0) {
-                    podaci.dodatna_bacanja.B += 1;
-                }
+                // if (podaci.dodatna_bacanja.B == 0) {
+                podaci.dodatna_bacanja.B += 1;
+                document.querySelector(`div-baza2`).classList.add("active");
+
+                // }
             }
             document.querySelector(`div-baza${cub}`).classList.add("active");
             // djig_cube.classList.add("disabled");
@@ -677,10 +681,15 @@ var igra = function () {
                 podaci.kocka -= 1;
             }
             if (djig_cube2.getAttribute("data-id") == 1) {
-                podaci.dodatna_bacanja.A -= 1;
+                if (podaci.dodatna_bacanja.A > 0) {
+                    podaci.dodatna_bacanja.A -= 1;
+                } 
             }
             if (djig_cube2.getAttribute("data-id") == 2) {
-                podaci.dodatna_bacanja.B -= 1;
+                if (podaci.dodatna_bacanja.B > 0) {
+                    podaci.dodatna_bacanja.B -= 1;
+                }
+                 
             }
             //document.querySelector(`div-baza${cub}`).classList.add("active");
             if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
@@ -707,20 +716,26 @@ var igra = function () {
         document.querySelector("div-baza1").classList.remove("active");
         document.querySelector("div-baza2").classList.remove("active");
 
-        if (podaci.dodatna_bacanja.A == 0) {
-            document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
-            <span data-num-id="1">Bacite kocku.</span>`;
-            if (parseInt(h) == 2) {
-                document.querySelector("div-baza1").classList.add("active");
-            }
-        }
-        if (podaci.dodatna_bacanja.B == 0) {
-            document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
-            <span data-num-id="1">Bacite kocku.</span>`;
-            if (parseInt(h) == 1) {
-                document.querySelector("div-baza2").classList.add("active");
-            }
-        }
+        var data_id = djig_cube2.getAttribute("data-id");
+        /* if (podaci.dodatna_bacanja.A >= 0) {
+              
+             document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="${data_id}"
+              data-number="${djig_cube2.getAttribute("data-number")}" 
+             onclick="igra.fa_djig_cube(this);"></i>
+             <span data-num-id="1">Bacite kocku.</span>`;
+             if (parseInt(h) == 2) {
+                 document.querySelector("div-baza1").classList.add("active");
+             }
+      }
+         if (podaci.dodatna_bacanja.B >= 0) {
+             document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="${data_id}"
+              data-number="${djig_cube2.getAttribute("data-number")}" 
+               onclick="igra.fa_djig_cube(this);"></i>
+             <span data-num-id="1">Bacite kocku.</span>`;
+             if (parseInt(h) == 1) {
+                 document.querySelector("div-baza2").classList.add("active");
+             }
+         }*/
     };
 };
 
