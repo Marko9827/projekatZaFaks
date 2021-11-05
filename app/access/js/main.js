@@ -244,7 +244,7 @@ var igra = function () {
         var polje = document.querySelector(`#tabla div-put i[data-fld='${br}']`),
             temp = polje.getAttribute("class");
 
-        
+
 
         if (polje.getAttribute("data-fld") > 0) {
             var h = br - 1;
@@ -359,9 +359,9 @@ var igra = function () {
             numb = 22;
             numb_class = "far fa-user";
         }
-        if (rplNumH == 1){
-        new igra.pomerime_na_Broj_novi(0,"A", h);
-        }else{
+        if (rplNumH == 1) {
+            new igra.pomerime_na_Broj_novi(0, "A", h);
+        } else {
             new igra.pomerime_na_Broj_novi(0, "B", h);
 
         }
@@ -379,13 +379,17 @@ var igra = function () {
             this.msg(`Bacite ponovo kocku. Imate jedno ${podaci.kocka} dodatno bacanje`);
 
         } else {
+
             document.querySelector("div-baza2").classList.remove("active");
             document.querySelector("div-baza1").classList.remove("active");
-            if (rplNumH == 1){
-                document.querySelector("div-baza2").classList.add("active");
-            } 
-            if (rplNumH == 2) {
-                document.querySelector("div-baza1").classList.add("active");
+
+            if (podaci.dodatna_bacanja.A == 0) {
+                document.querySelector("div-baza2").classList.add("active"); document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
+            <span data-num-id="1">Bacite kocku.</span>`;
+            }
+            if (podaci.dodatna_bacanja.B == 0) {
+                document.querySelector("div-baza1").classList.add("active"); document.querySelector("div-cocka").innerHTML = `<i class="div-cocka fas fa-dice" data-id="1" onclick="igra.fa_djig_cube(this);"></i>
+            <span data-num-id="1">Bacite kocku.</span>`;
             }
             this.msg("Bacite kocku.");
         }
