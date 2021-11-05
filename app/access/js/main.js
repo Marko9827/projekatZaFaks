@@ -7,6 +7,9 @@ const tabla = document.getElementById("tabla"),
 var vremenkusa,
     sekundara = 0,
     podaci = {
+        temp: {
+            class: "",
+        },
         dice_rand: {
             0: "fa-dice-one",
             1: "fa-dice-one",
@@ -28,7 +31,7 @@ var vremenkusa,
         pijuni: [{
             pijun: "A1",
             grupa: "A",
-            baza: true,
+            baza: 7,
             kucica: false
         },
         {
@@ -90,7 +93,7 @@ var igra = function () {
         document.querySelectorAll("#tabla div-put-coll div-i i").forEach(function (v) {
             // Prvo resetuje sve živo na tabli, Ne vidi se golim okom odobri log consolu igra.log(1); !
             if (v.classList.contains("i-f-ignore-me-3")) {
-                v.setAttribute("class","disabled i-f-ignore-me-3 i-f-home far fa-user");
+                v.setAttribute("class", "disabled i-f-ignore-me-3 i-f-home far fa-user");
             } else if (v.classList.contains("i-f-ignore-me-1")) {
                 v.setAttribute("class", "disabled i-f-ignore-me-1 i-f-home fas fa-horse-head");
             } else if (v.classList.contains("i-f-ignore-me-2")) {
@@ -108,11 +111,13 @@ var igra = function () {
         podaci.pijuni.forEach(function (v) {
             var grupa = 1;
 
-            if (v.baza == false) {
-                document.querySelector(`#tabla div-baza1 i[data-fldh="${v.pijun}"]`).classList.add("disabled");
+            if (v.baza !== true) {
+                igra.pomerime_na_Broj_novi(v.baza, v.grupa);
+                document.querySelector(`#tabla .bazaAB i[data-fldh="${v.pijun}"]`).classList.add("disabled");
             } else {
                 document.querySelector(`#tabla .bazaAB i[data-fldh="${v.pijun}"]`).classList.remove("disabled");
             }
+
 
         });
 
@@ -137,6 +142,7 @@ var igra = function () {
     };
     this.testiraj = function () {
         this.contoller();
+        this.contoller_novi();
         this.msg("Bacite kocku.");
     };
     this.zakljucaj = function (w) {
@@ -203,7 +209,37 @@ var igra = function () {
     this.kucica = function (b, b2) {
 
     };
-    this.pomerime_na_Broj_novi = function (br) {
+    this.pomerime_na_Broj_novi = function (br, grupa) {
+        var polje = document.querySelector(`#tabla div-put i[data-fld='${br}']`),
+            temp = polje.getAttribute("class");
+
+        if (polje.getAttribute("data-fld") > 0) {
+            var h = br - 1;
+            if (h == 0 || h == 22) {
+                document.querySelector(`#tabla div-put i[data-fld='${h}']`).setAttribute("class", "i-home-put i-put far fa-dot-circle");
+            } else {
+                document.querySelector(`#tabla div-put i[data-fld='${h}']`).setAttribute("class", " i-put far fa-dot-circle");
+            }
+        }
+        if (br == 0 || br == 22) {
+            if (grupa == "A") {
+                polje.setAttribute("class", "i-home-put i-put fas fa-horse-head");
+                polje.setAttribute("onclick", `igra.contoller_novi("${br}","${grupa}")`);
+            } else {
+                polje.setAttribute("class", "i-home-put i-put far fa-user");
+                polje.setAttribute("onclick", `igra.contoller_novi("${br}","${grupa}")`);
+
+            }
+        } else {
+            if (grupa == "A") {
+                polje.setAttribute("class", "i-put fas fa-horse-head");
+                polje.setAttribute("onclick", `igra.contoller_novi("${br}","${grupa}")`);
+
+            } else {
+                polje.setAttribute("class", "i-put far fa-user");
+                polje.setAttribute("onclick", `igra.contoller_novi("${br}","${grupa}")`);
+            }
+        }
 
     };
     this.pomerime_na_Broj = function (br) {
@@ -252,6 +288,24 @@ var igra = function () {
         div_put.removeAttribute("active");
         this.event_clicker();
     };
+    this.pijun_novi = function (name) {
+        if (djig_cube2.getAttribute("data-id") == 1) {
+            div_put.setAttribute("active", 1);
+            document.querySelector(`#tabla div-baza1 i[data-fldh="${name}"]`).classList.add("disabled");
+        } else {
+            document.querySelector(`#tabla div-baza2 i[data-fldh="${name}"]`).classList.remove("disabled")
+        }
+
+        podaci.pijuni.forEach(function (v) {
+            var grupa = 1;
+
+            if (v.baza !== true) {
+                v.grupa = "A";
+            }
+        });
+      
+     
+    };
     this.pijun = function (name) {
         djig_cube2.setAttribute("class", "div-cocka  fas fa-dice");
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
@@ -271,6 +325,7 @@ var igra = function () {
             numb_class = "far fa-user";
         }
 
+        
         data_fld = document.querySelector(`#tabla div-put i[data-fld='${numb}']`);
         data_fld.setAttribute("class", `i-home-put i-put ${numb_class}`);
         data_fld.setAttribute("data-fldh", h);
