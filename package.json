@@ -1,0 +1,30 @@
+{
+    "name": "projekatzafaks",
+    "description": "Neljuti se covece",
+    "version": "1.0.0",
+    "author": {
+        "email": "marko.supergun@gmail.com",
+        "name": "Marko Nikolić",
+        "url": "https://www.linkedin.com/in/markonikolic98/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Marko9827/projekatZaFaks.git"
+    },
+    "scripts": {
+        "test": "",
+        "start": "node server.js"
+    },
+    "homepage": "https://github.com/Marko9827/projekatZaFaks",
+    "displayName": "Neljuti se čoveče",
+    "readme": "README.MD",
+    "license": "CC0-1.0",
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.4",
+        "bootstrap": "^3.4.1",
+        "bootstrap-icons": "^1.5.0",
+        "express": "^4.17.1",
+        "fs": "0.0.1-security",
+        "jquery": "^3.6.0"
+    }
+}

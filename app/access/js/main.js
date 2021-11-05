@@ -145,24 +145,45 @@ var igra = function () {
         this.msg("Bacite kocku.");
         var i = 0,
             i_K = 0,
-            intH = setInterval(() => {
-                i_k++;
-                if(i_k == 4){
-                clearInterval(intH);
-                }
-            },150),
+            interval1 = true,
+            interval2 = true,
             int = setInterval(() => {
-                i++;
-                document.querySelectorAll("#tabla div-put i").forEach(function (v) {
-                    v.classList.remove("green_test");
-                });
-                document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("green_test");
-                if (i == 44) {
-                    clearInterval(int);
+                try {
+                    i++;
                     document.querySelectorAll("#tabla div-put i").forEach(function (v) {
                         v.classList.remove("green_test");
                     });
-                }
+                    document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("green_test");
+                    if (i == 43) {
+
+                        document.querySelectorAll("#tabla div-put i").forEach(function (v) {
+                            v.classList.remove("green_test");
+                        });
+                        document.querySelector("li[data-opt='resume_start']").setAttribute("onclick", "igra.start();");
+                        document.querySelector("li[data-opt='resume_start']").innerHTML = "Nova igra";
+
+                        var intH = setInterval(() => {
+                            if (interval2 == true) {
+                                i_K++;
+                                var hv = document.querySelectorAll(`#tabla div-put i[data-home='${i_K}']`);
+
+                                if (hv.classList.contains("i-f-ignore-me-1")) {
+                                    hv.classList.remove("green_test");
+                                }
+
+                                document.querySelectorAll(`#tabla div-put i[data-home='${i_K}']`).forEach(function (v2) {
+                                    if (v.classList.contains("i-f-ignore-me-1")) {
+                                        v2.classList.remove("green_test");
+                                    }
+                                });
+                                if (i_K == 4) {
+                                    clearInterval(intH);
+                                }
+                            }
+                        }, 150);
+                        clearInterval(int);
+                    }
+                } catch (e) { }
             }, 150);
 
 
