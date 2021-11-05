@@ -679,14 +679,7 @@ var igra = function () {
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
         djig_cube.setAttribute("data-number", vvv);
         var cub = parseInt(djig_cube2.getAttribute("data-id"));
-        if (parseInt($("#tabla div-cocka i").attr("data-Dbacanje")) == 0) {
-            if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
-                $("#tabla div-cocka i").attr("data-id", 2);
-            } else {
-                $("#tabla div-cocka i").attr("data-id", 1);
-
-            }
-        }
+         
         //  - if (AkockaTRi_Puta > 0) {
         if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
 
@@ -798,6 +791,14 @@ var igra = function () {
         igra.logger(JSON.stringify(podaci.dodatna_bacanja), djig_cube.getAttribute("data-number"));
         if (vvv !== 6) {
             igra.kosledecibacaKocku(djig_cube2.getAttribute("data-id"));
+        }
+        if (parseInt($("#tabla div-cocka i").attr("data-Dbacanje")) == 0) {
+            if (parseInt($("#tabla div-cocka i").attr("data-id")) == 1) {
+                $("#tabla div-cocka i").attr("data-id", 2);
+            } else {
+                $("#tabla div-cocka i").attr("data-id", 1);
+
+            }
         }
     };
     this.kosledecibacaKocku = function (h) {

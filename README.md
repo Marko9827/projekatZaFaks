@@ -20,9 +20,15 @@ U projektu korišćeno:
 - Css Animacije
 
 # Pokretanje preko nodjes
- 1. Idi na ```root``` folder projekta. Tvoj /folder/```projekatZaFaks```/app
+ 1. Idi na ```root``` folder projekta. Tvoj /folder/```projekatZaFaks```
  2. npm install
  3. node server.js
+ 4. Automatizovana skripta će vas odvesti na željeni link. Malo strpljena!
+
+# Pokretanje preko bilo kog servera
+ 1. Idi na ```root``` folder servera. Tvoj /folder/```projekatZaFaks```/app
+ 2. npm install
+ 3. U Web pregledač kucaj Tvoj link servera/```projekatZaFaks```/app
 
 > Za informacije kako teče(**šta se dešava u pozadini**) igra možete videti u consoli web pregledača
 
@@ -49,3 +55,4 @@ Neke od komandi za consolu:
 - Ime i prezime: [Marko Nikolić](https://github.com/Marko9827/)
 - Lični email: [marko.supergun@gmail.com](marko.supergun@gmail.com)
 - Singidunum email: [marko.nikolic17@singimail.rs](marko.nikolic17@singimail.rs)
+- Prijavi bug: Na projektu [ovde](https://github.com/Marko9827/projekatZaFaks/issues).
