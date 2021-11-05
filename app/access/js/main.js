@@ -118,7 +118,6 @@ var igra = function () {
                 document.querySelector(`#tabla .bazaAB i[data-fldh="${v.pijun}"]`).classList.remove("disabled");
             }
 
-
         });
 
     };
@@ -209,9 +208,22 @@ var igra = function () {
     this.kucica = function (b, b2) {
 
     };
+
+    this.menjanje_baze_broj = function (br, pijun) {
+        var brGTA = djig_cube2.getAttribute("data-number"),
+            number = parseInt(br) + parseInt(brGTA);
+
+        podaci.pijuni.forEach(function (v) {
+            if (v.pijun == pijun) {
+                v.baza = number;
+            }
+        });
+        this.contoller_novi();
+    };
     this.pomerime_na_Broj_novi = function (br, grupa) {
         var polje = document.querySelector(`#tabla div-put i[data-fld='${br}']`),
             temp = polje.getAttribute("class");
+
 
         if (polje.getAttribute("data-fld") > 0) {
             var h = br - 1;
@@ -224,23 +236,22 @@ var igra = function () {
         if (br == 0 || br == 22) {
             if (grupa == "A") {
                 polje.setAttribute("class", "i-home-put i-put fas fa-horse-head");
-                polje.setAttribute("onclick", `igra.contoller_novi("${br}","${grupa}")`);
+                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${grupa}")`);
             } else {
                 polje.setAttribute("class", "i-home-put i-put far fa-user");
-                polje.setAttribute("onclick", `igra.contoller_novi("${br}","${grupa}")`);
+                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${grupa}")`);
 
             }
         } else {
             if (grupa == "A") {
                 polje.setAttribute("class", "i-put fas fa-horse-head");
-                polje.setAttribute("onclick", `igra.contoller_novi("${br}","${grupa}")`);
+                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${grupa}")`);
 
             } else {
                 polje.setAttribute("class", "i-put far fa-user");
-                polje.setAttribute("onclick", `igra.contoller_novi("${br}","${grupa}")`);
+                polje.setAttribute("onclick", `igra.menjanje_baze_broj("${br}","${grupa}")`);
             }
         }
-
     };
     this.pomerime_na_Broj = function (br) {
         var brGTA = djig_cube2.getAttribute("data-number"),
@@ -293,7 +304,7 @@ var igra = function () {
             div_put.setAttribute("active", 1);
             document.querySelector(`#tabla div-baza1 i[data-fldh="${name}"]`).classList.add("disabled");
         } else {
-            document.querySelector(`#tabla div-baza2 i[data-fldh="${name}"]`).classList.remove("disabled")
+            document.querySelector(`#tabla div-baza2 i[data-fldh="${name}"]`).classList.remove("disabled");
         }
 
         podaci.pijuni.forEach(function (v) {
@@ -303,8 +314,8 @@ var igra = function () {
                 v.grupa = "A";
             }
         });
-      
-     
+
+
     };
     this.pijun = function (name) {
         djig_cube2.setAttribute("class", "div-cocka  fas fa-dice");
@@ -325,12 +336,12 @@ var igra = function () {
             numb_class = "far fa-user";
         }
 
-        
+
         data_fld = document.querySelector(`#tabla div-put i[data-fld='${numb}']`);
         data_fld.setAttribute("class", `i-home-put i-put ${numb_class}`);
         data_fld.setAttribute("data-fldh", h);
         data_fld.setAttribute("data-group", name.getAttribute("data-group"));
-        data_fld.setAttribute("onclick", "igra.pomerime_na_Broj(this)");
+        data_fld.setAttribute("onclick", "igra.contoller_novi()");//pomerime_na_Broj(this)");
         name.classList.add("disabled");
         djig_cube2.classList.remove("disabled");
         data_fld.setAttribute("style", "pointer-events:none !important;");
