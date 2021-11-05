@@ -31,13 +31,13 @@ Neke od komandi za consolu:
 | Komanda           | Čemu služi                                                        |
 | ------------------| ------------------------------------------------------------------|
 | igra.testiraj();  | Testira zbog bagova NE aktivirati OVO u toku igre!                |
-| igra.start();     |   Nova igra                                                       |
-| igra.kocka(A);    |  Igrač A baca kocku                                               |
-| igra.kocka(B);    |  Igrač B baca kocku                                               |
+| igra.start();     | Nova igra                                                         |
+| igra.kocka(A);    | Igrač A baca kocku                                                |
+| igra.kocka(B);    | Igrač B baca kocku                                                |
 | igra.stop();      | Zavšrena igra                                                     |
-| igra.stop(1);     |  Zatvara karticu                                                  |
-| igra.log();       |  Sačuvaj rezlutat igre                                            |
-| igra.log(1);      |  Pokreći log u consoli                                            |
+| igra.stop(1);     | Zatvara karticu                                                   |
+| igra.log();       | Sačuvaj rezlutat igre                                             |
+| igra.log(1);      | Pokreći log u consoli                                             |
 | igra.log(0);      | Igra i dalje radi ali se ne prikazuje u Consoli od Web pregledača |
 
 # Status (Vidi se samo na Github, privatni je respozitorijum trebaće vam pristup!)
