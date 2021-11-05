@@ -4,20 +4,40 @@ const tabla = document.getElementById("tabla"),
     vremeigre = document.getElementById("vremeigre"),
     djig_cube2 = document.querySelector(".div-cocka"),
     div_put = document.querySelector("div-put");
-var dice_rand = {
-    0: "fa-dice-one",
-    1: "fa-dice-one",
-    2: "fa-dice-two",
-    3: "fa-dice-three",
-    4: "fa-dice-four",
-    5: "fa-dice-five",
-    6: "fa-dice-six"
-},
-    vremenkusa,
+var vremenkusa,
     sekundara = 0,
-    kocka = 0,
-    AkockaTRi_Puta = 3,
-    BkockaTRi_Puta = 3;
+    podaci = {
+        dice_rand: {
+            0: "fa-dice-one",
+            1: "fa-dice-one",
+            2: "fa-dice-two",
+            3: "fa-dice-three",
+            4: "fa-dice-four",
+            5: "fa-dice-five",
+            6: "fa-dice-six"
+        },
+        kocka: 0,
+        dodatna_bacanja: {
+            A: 3,
+            B: 3
+        },
+        kucice: {
+            A: [],
+            B: []
+        },
+        pijuni: {
+            A1: false,
+            A2: false,
+            A3: false,
+            A4: false,
+            B1: false,
+            B2: false,
+            B3: false,
+            B4: false,
+        }
+    };
+
+
 var igra = function () {
 
 
@@ -138,8 +158,8 @@ var igra = function () {
         } else {
             br2.setAttribute("class", "i-put far fas fa-horse-head");
         }
-        kocka -= 1;
-        if (kocka > 0) {
+        podaci.kocka -= 1;
+        if (podaci.kocka > 0) {
             this.msg(`Bacite ponovo kocku. Imate jedno ${kocka} dodatno bacanje`);
         } else {
             if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
@@ -166,7 +186,7 @@ var igra = function () {
             numb_class = "fas fa-horse-head";
         numb = 0,
             num = parseInt(djig_cube2.getAttribute("data-id"));
-        if (num == 2) {
+        if (name.getAttribute("data-group") == "B") {
             numb = 22;
             numb_class = "far fa-user";
         }
@@ -174,14 +194,15 @@ var igra = function () {
         data_fld = document.querySelector(`#tabla div-put i[data-fld='${numb}']`);
         data_fld.setAttribute("class", `i-home-put i-put ${numb_class}`);
         data_fld.setAttribute("data-fldh", h);
+        data_fld.setAttribute("data-group", name.getAttribute("data-group"));
         data_fld.setAttribute("onclick", "igra.pomerime_na_Broj(this)");
         name.classList.add("disabled");
         djig_cube2.classList.remove("disabled");
         data_fld.setAttribute("style", "pointer-events:none !important;");
         div_put.setAttribute("active", rplNumH);
-        if (kocka > 0) {
+        if (podaci.kocka > 0) {
 
-            this.msg(`Bacite ponovo kocku. Imate jedno ${kocka} dodatno bacanje`);
+            this.msg(`Bacite ponovo kocku. Imate jedno ${data.kocka} dodatno bacanje`);
 
         } else {
             this.msg("Bacite kocku.");
@@ -190,10 +211,11 @@ var igra = function () {
     };
     this.msg = function (msg) {
         document.querySelector("div-cocka span").innerHTML = msg;
+
     };
     this.fa_djig_cube = function (djig_cube) {
 
-
+        var dice_rand = podaci.dice_rand;
         var timeout_seconds = 100;
 
         this.zakljucaj(1);
@@ -222,7 +244,7 @@ var igra = function () {
 
 
                             igra.cube_loadet(djig_cube, vvv);
-                            kockaTRi_Puta -= 1;
+                            // kockaTRi_Puta -= 1;
 
                         }, timeout_seconds);
                     }, timeout_seconds);
@@ -233,25 +255,49 @@ var igra = function () {
 
     };
     this.cube_loadet = function (djig_cube, vvv) {
-        djig_cube.setAttribute("class", "div-cocka fas " + dice_rand[vvv]);
+        djig_cube.setAttribute("class", "div-cocka fas " + podaci.dice_rand[vvv]);
         new igra.zakljucaj(0);
         //       djig_cube.setAttribute("class", "div-cocka  fas fa-dice");
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
         djig_cube.setAttribute("data-number", vvv);
         var cub = parseInt(djig_cube2.getAttribute("data-id"));
 
-        if (AkockaTRi_Puta > 0) {
-            if (djig_cube2.getAttribute("data-id") == 1) {
-                div_put.setAttribute("active", 1);
-                AkockaTRi_Puta -= 1;
-            } else {
-                div_put.setAttribute("active", 2);
-                BkockaTRi_Puta -= 1;
+        //  - if (AkockaTRi_Puta > 0) {
+        if (djig_cube2.getAttribute("data-id") == 1) {
+            div_put.setAttribute("active", 1);
+            if (podaci.dodatna_bacanja.A > 0) {
+                podaci.dodatna_bacanja.A -= 1;
+            }
+        } else {
+            div_put.setAttribute("active", 2);
+            if (podaci.dodatna_bacanja.B > 0) {
+                podaci.dodatna_bacanja.B -= 1;
             }
         }
 
+        //}
+
         if (vvv == 6) {
-            kocka += 1;
+            podaci.kocka += 1;
+            document.querySelector(`div-baza${cub}`).classList.add("active");
+            djig_cube.classList.add("disabled");
+            new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
+            console.log(podaci.dodatna_bacanja);
+            if (djig_cube2.getAttribute("data-id") == 1) {
+                div_put.setAttribute("active", 1);
+                if (podaci.dodatna_bacanja.A > 0) {
+                    podaci.dodatna_bacanja.A += 1;
+                }
+            } else {
+                div_put.setAttribute("active", 2);
+                if (podaci.dodatna_bacanja.B > 0) {
+                    podaci.dodatna_bacanja.B += 1;
+                }
+            }
+        } else {
+            if (podaci.kocka > 0) {
+                podaci.kocka -= 1;
+            }
             document.querySelector(`div-baza${cub}`).classList.add("active");
             djig_cube.classList.add("disabled");
             new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
