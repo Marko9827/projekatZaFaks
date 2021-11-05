@@ -477,7 +477,7 @@ var igra = function () {
         this.event_clicker();
     };
     this.pijun_novi = function (name) {
-        if (djig_cube2.getAttribute("data-id") == 1) {
+        if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
             div_put.setAttribute("active", 1);
             document.querySelector(`#tabla div-baza1 i[data-fldh="${name}"]`).classList.add("disabled");
         } else {
@@ -517,7 +517,7 @@ var igra = function () {
     this.pijun = function (name) {
         djig_cube2.setAttribute("class", "div-cocka  fas fa-dice");
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
-        if (djig_cube2.getAttribute("data-id") == 1) {
+        if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
             div_put.setAttribute("active", 1);
         } else {
             div_put.setAttribute("active", 2);
@@ -562,7 +562,7 @@ var igra = function () {
 
             document.querySelector("div-baza2").classList.remove("active");
             document.querySelector("div-baza1").classList.remove("active");
-            if (djig_cube2.getAttribute("data-id") == 1) {
+            if (parseInt(djig_cube2.getAttribute("data-id"))  == 1) {
                 podaci.dodatna_bacanja.A = 1;
                 if (podaci.dodatna_bacanja.A == 0) {
                     document.querySelector("div-baza2").classList.add("active");
@@ -572,7 +572,7 @@ var igra = function () {
                     djig_cube2.setAttribute("data-id", 2);
                 }
             }
-            if (djig_cube2.getAttribute("data-id") == 2) {
+            if (parseInt(djig_cube2.getAttribute("data-id")) == 2) {
                 podaci.dodatna_bacanja.B = 1;
                 if (podaci.dodatna_bacanja.B == 0) {
                     document.querySelector("div-baza1").classList.add("active");
@@ -674,7 +674,7 @@ var igra = function () {
             new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
             igra.logger(JSON.stringify(podaci.dodatna_bacanja) + "\n" + cub);
 
-            if (djig_cube2.getAttribute("data-id") == 1) {
+            if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
                 div_put.setAttribute("active", 1);
                 // if (podaci.dodatna_bacanja.A == 0) {
                 podaci.dodatna_bacanja.A += 1;
@@ -693,17 +693,17 @@ var igra = function () {
             // djig_cube.classList.add("disabled");
             igra.logger(podaci.dodatna_bacanja + "\n" + cub);
         } else {
-            igra.kosledecibacaKocku(djig_cube2.getAttribute("data-id"));
+            
 
             if (podaci.kocka > 0) {
                 podaci.kocka -= 1;
             }
-            if (djig_cube2.getAttribute("data-id") == 1) {
+            if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
                 if (podaci.dodatna_bacanja.A > 0) {
                     podaci.dodatna_bacanja.A -= 1;
                 }
             }
-            if (djig_cube2.getAttribute("data-id") == 2) {
+            if (parseInt(djig_cube2.getAttribute("data-id")) == 2) {
                 if (podaci.dodatna_bacanja.B > 0) {
                     podaci.dodatna_bacanja.B -= 1;
                 }
@@ -729,14 +729,16 @@ var igra = function () {
             v.removeAttribute("style");
         });
         igra.logger(JSON.stringify(podaci.dodatna_bacanja), djig_cube.getAttribute("data-number"));
-        
+        if(vvv !== 6){
+            igra.kosledecibacaKocku(djig_cube2.getAttribute("data-id"));
+        }
     };
     this.kosledecibacaKocku = function (h) {
         document.querySelector("div-baza1").classList.remove("active");
         document.querySelector("div-baza2").classList.remove("active");
 
         var data_id = djig_cube2.getAttribute("data-id");
-        if (djig_cube2.getAttribute("data-id") == 1) {
+        if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
             if (podaci.dodatna_bacanja.A == 0) {
                 djig_cube2.classList.remove("disabled");
                 djig_cube2.setAttribute("data-id", 2);
@@ -744,7 +746,7 @@ var igra = function () {
               //  div_put.setAttribute("active", 2);
             }
         }
-        if (djig_cube2.getAttribute("data-id") == 2) {
+        if (parseInt(djig_cube2.getAttribute("data-id")) == 2) {
             if (podaci.dodatna_bacanja.B == 0) {
                 djig_cube2.classList.remove("disabled");
                 //div_put.setAttribute("active", 1);
