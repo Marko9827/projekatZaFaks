@@ -186,12 +186,18 @@ var igra = function () {
 
     };
     this.stop = function () {
+        
+        if (window.confirm("Sigurni ste za stopiranje igre?\n Vaš rezlutat će biti izgubljen!")) {
+            
         podaci.pijuni.forEach(function (v) {
            v.baza = true;
            v.kucica = false;
 
         });
+        document.querySelector("#tabla .bazaAB").classList.remove("active");
+        this.stoperica(false);
         this.contoller_novi();
+        } 
     };
     this.contoller = function () {
         document.addEventListener("contextmenu", function (e) {
