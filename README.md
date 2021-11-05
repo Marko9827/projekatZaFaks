@@ -54,5 +54,6 @@ Neke od komandi za consolu:
 
 - Ime i prezime: [Marko Nikolić](https://github.com/Marko9827/)
 - Lični email: [marko.supergun@gmail.com](marko.supergun@gmail.com)
+- Linkedin email: [markonikolic98](https://www.linkedin.com/in/markonikolic98/)
 - Singidunum email: [marko.nikolic17@singimail.rs](marko.nikolic17@singimail.rs)
 - Prijavi bug: Na projektu [ovde](https://github.com/Marko9827/projekatZaFaks/issues).

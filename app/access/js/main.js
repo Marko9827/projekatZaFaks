@@ -31,60 +31,60 @@ var vremenkusa,
             B: false
         },
         pijuni: [{
-                pijun: "A1",
-                grupa: "A",
-                baza: 7,
-                kucica: false
-            },
-            {
-                pijun: "A2",
-                grupa: "A",
-                baza: 4,
-                kucica: false
+            pijun: "A1",
+            grupa: "A",
+            baza: 7,
+            kucica: false
+        },
+        {
+            pijun: "A2",
+            grupa: "A",
+            baza: 4,
+            kucica: false
 
-            },
-            {
-                pijun: "A3",
-                grupa: "A",
-                baza: true,
-                kucica: false
-            },
-            {
-                pijun: "A4",
-                grupa: "A",
-                baza: true,
-                kucica: false
+        },
+        {
+            pijun: "A3",
+            grupa: "A",
+            baza: true,
+            kucica: false
+        },
+        {
+            pijun: "A4",
+            grupa: "A",
+            baza: true,
+            kucica: false
 
-            },
-            {
-                pijun: "B1",
-                grupa: "B",
-                baza: true,
-                kucica: false
+        },
+        {
+            pijun: "B1",
+            grupa: "B",
+            baza: true,
+            kucica: false
 
-            }, {
-                pijun: "B2",
+        }, {
+            pijun: "B2",
 
-                grupa: "B",
-                baza: true,
-                kucica: true
+            grupa: "B",
+            baza: true,
+            kucica: true
 
-            }, {
-                pijun: "B3",
+        }, {
+            pijun: "B3",
 
-                grupa: "B",
-                baza: 30,
-                kucica: false
+            grupa: "B",
+            baza: 30,
+            kucica: false
 
-            },
-            {
-                pijun: "B4",
+        },
+        {
+            pijun: "B4",
 
-                grupa: "B",
-                baza: true,
-                kucica: false
+            grupa: "B",
+            baza: true,
+            kucica: false
 
-            }
+        }
         ]
     };
 
@@ -249,7 +249,7 @@ var igra = function () {
                     }
 
 
-                } catch (e) {}
+                } catch (e) { }
             }, 150);
 
 
@@ -392,7 +392,7 @@ var igra = function () {
 
 
         document.querySelectorAll("#tabla div-put-coll div-i i").forEach(function (H) {
-            if (H.classList.contains("i-f-ignore-me-3") || H.classList.contains("i-f-ignore-me-2") || H.classList.contains("i-f-ignore-me-1")) {} else {
+            if (H.classList.contains("i-f-ignore-me-3") || H.classList.contains("i-f-ignore-me-2") || H.classList.contains("i-f-ignore-me-1")) { } else {
                 if (H.classList.contains("i-home-put")) {
                     H.setAttribute("class", "i-home-put far fa-dot-circle");
                 } else {
@@ -447,10 +447,10 @@ var igra = function () {
 
         try {
             br2.removeAttribute("onclick");
-        } catch (e) {}
+        } catch (e) { }
         try {
             br.removeAttribute("onclick");
-        } catch (e) {}
+        } catch (e) { }
 
         if (br2_str.includes("i-home-put")) {
             br.setAttribute("class", "i-home-put i-put far fa-dot-circle");
@@ -679,7 +679,7 @@ var igra = function () {
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
         djig_cube.setAttribute("data-number", vvv);
         var cub = parseInt(djig_cube2.getAttribute("data-id"));
-         
+
         //  - if (AkockaTRi_Puta > 0) {
         if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
 
@@ -733,8 +733,10 @@ var igra = function () {
             document.querySelector(`div-baza${cub}`).classList.add("active");
             // djig_cube.classList.add("disabled");
             igra.logger(podaci.dodatna_bacanja + "\n" + cub);
-        } else {
 
+
+        } else {
+          
             /*
                         if (podaci.kocka > 0) {
                             podaci.kocka -= 1;
@@ -782,6 +784,7 @@ var igra = function () {
                 }
                 
             }*/
+            //igra.kosledecibacaKocku("");
             djig_cube2.classList.add("disabled");
         }
         //  }
@@ -792,6 +795,7 @@ var igra = function () {
         if (vvv !== 6) {
             igra.kosledecibacaKocku(djig_cube2.getAttribute("data-id"));
         }
+        
         if (parseInt($("#tabla div-cocka i").attr("data-Dbacanje")) == 0) {
             if (parseInt($("#tabla div-cocka i").attr("data-id")) == 1) {
                 $("#tabla div-cocka i").attr("data-id", 2);
@@ -800,6 +804,16 @@ var igra = function () {
 
             }
         }
+    };
+    this.kocka = function (sta) {
+        if (sta == "A") {
+            $("#tabla div-cocka i").attr("data-id", 1);
+        } else if (sta == "B") {
+            $("#tabla div-cocka i").attr("data-id", 2);
+        } else {
+            $("#tabla div-cocka i").attr("data-id", sta);
+        }
+        $("#tabla div-cocka i").attr("data-dbacanje", 0)
     };
     this.kosledecibacaKocku = function (h) {
         document.querySelector("div-baza1").classList.remove("active");
