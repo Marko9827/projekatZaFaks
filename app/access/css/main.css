@@ -95,6 +95,10 @@ body {
     color: var(--zelena) !important;
 }
 
+.naradzasta{
+    color: var(--naradzasta) !important;
+}
+
 #tabla .bazaAB i {
     pointer-events: none;
 }
