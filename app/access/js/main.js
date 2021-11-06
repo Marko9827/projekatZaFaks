@@ -890,7 +890,7 @@ var igra = function () {
             }*/
             //igra.kosledecHibacaKocku("");
             djig_cube2.classList.add("disabled");
-            igra.kosledecibacaKocku(vvv);
+
 
             //  }---
             document.querySelectorAll("div-put .fa-horse-head, div-put .fa-user").forEach(function (v) {
@@ -909,7 +909,7 @@ var igra = function () {
                     //$("#tabla div-cocka i").attr("data-id", 1);
                     igra.kocka("A");
                 }
-            }
+            } igra.kosledecibacaKocku(vvv);
         }
     };
     this.kocka = function (sta) {
@@ -918,11 +918,21 @@ var igra = function () {
         if (sta == "A") {
             $("#tabla div-cocka i").attr("data-id", 1);
             $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
-
+            if (document.querySelectorAll(".pijun_A").length > 0) {
+                if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
+                    djig_cube.classList.add("disabled");
+                    div_put.setAttribute("active", 1);
+                }
+            }
         } else if (sta == "B") {
             $("#tabla div-cocka i").attr("data-id", 2);
             $("#rezlutat .fa-user").addClass("koSledeciIgra");
-
+            if (document.querySelectorAll(".pijun_B").length > 0) {
+                if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
+                    djig_cube.classList.add("disabled");
+                    div_put.setAttribute("active", 2);
+                }
+            }
         } else {
             $("#tabla div-cocka i").attr("data-id", parseInt(sta));
             if (parseInt(sta) == 1) {
