@@ -897,8 +897,8 @@ var igra = function () {
                 v.removeAttribute("style");
             });
             igra.logger(JSON.stringify(podaci.dodatna_bacanja), djig_cube.getAttribute("data-number"));
-            if (vvv !== 6) {
-
+            if (vvv == 6) {
+                djig_cube2.classList.add("disabled");
             }
 
             if (parseInt($("#tabla div-cocka i").attr("data-Dbacanje")) == 0) {
@@ -909,7 +909,8 @@ var igra = function () {
                     //$("#tabla div-cocka i").attr("data-id", 1);
                     igra.kocka("A");
                 }
-            } igra.kosledecibacaKocku(vvv);
+            } 
+            igra.kosledecibacaKocku(vvv);
         }
     };
     this.kocka = function (sta) {
@@ -918,21 +919,23 @@ var igra = function () {
         if (sta == "A") {
             $("#tabla div-cocka i").attr("data-id", 1);
             $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
-            if (document.querySelectorAll(".pijun_A").length > 0) {
+            div_put.setAttribute("active", 1);
+           /* if (document.querySelectorAll(".pijun_A").length > 0) {
                 if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
                     djig_cube.classList.add("disabled");
                     div_put.setAttribute("active", 1);
                 }
-            }
+            } */
         } else if (sta == "B") {
             $("#tabla div-cocka i").attr("data-id", 2);
             $("#rezlutat .fa-user").addClass("koSledeciIgra");
-            if (document.querySelectorAll(".pijun_B").length > 0) {
+            div_put.setAttribute("active", 2);
+            /* if (document.querySelectorAll(".pijun_B").length > 0) {
                 if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
                     djig_cube.classList.add("disabled");
                     div_put.setAttribute("active", 2);
                 }
-            }
+            } */
         } else {
             $("#tabla div-cocka i").attr("data-id", parseInt(sta));
             if (parseInt(sta) == 1) {
@@ -969,7 +972,7 @@ var igra = function () {
                     igra.kocka("B");
                 }
                 div_put.setAttribute("active", 2);
-                igra.kocka("B");
+              //  igra.kocka("B");
                 new igra.msg("Odaberi pijuna sa kojim ćeš da prvi načiniš potez!");
                 new igra.logger("Kocka - 1");
             }
@@ -991,7 +994,7 @@ var igra = function () {
                         igra.kocka("A");
                     }
                     div_put.setAttribute("active", 1);
-                    igra.kocka("A");
+               //     igra.kocka("A");
                     new igra.msg("Odaberi pijuna sa kojim ćeš da prvi načiniš potez!");
                     new igra.logger("Kocka - 2");
                 }
