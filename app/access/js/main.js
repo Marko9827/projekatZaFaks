@@ -6,6 +6,7 @@ var tabla = document.getElementById("tabla"),
     djig_cube2 = document.querySelector(".div-cocka"),
     djig_cube = document.querySelector(".div-cocka"),
     div_put = document.querySelector("div-put");
+interval_150 = 150;
 var vremenkusa,
     sekundara = 0,
     podaci = {
@@ -262,13 +263,13 @@ var igra = function () {
                         });
 
                         //  igra.testiraj_kucice(150);
-                        igra.testirajB(150);
+                        igra.testirajB(interval_150);
                         clearInterval(int);
                     }
 
 
                 } catch (e) { }
-            }, 150);
+            }, interval_150);
 
 
     };
@@ -620,8 +621,7 @@ var igra = function () {
             //}
         }
         //  if (parseInt(djig_cube2.getAttribute("data-id")) == 2) {
-        if (parseInt(djig_cube2.getAttribute("data-id")) == 2 ||
-            parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
+        if (parseInt(djig_cube2.getAttribute("data-id")) == 2) {
             djig_cube2.classList.remove("disabled");
             if (document.querySelectorAll(".pijun_B").length == 0) {
                 div_put.removeAttribute("active");
@@ -638,6 +638,12 @@ var igra = function () {
 
         if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 1) {
             if (parseInt($("#tabla div-cocka i").attr("data-number")) !== 6) {
+                if (parseInt(djig_cube2.getAttribute("data-id")) == 2) {
+                    igra.kocka("A");
+                }
+                if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
+                    igra.kocka("B");
+                }
                 podaci.dodatna_bacanja.A = 0;
                 podaci.dodatna_bacanja.B = 0;
             }
@@ -728,8 +734,8 @@ var igra = function () {
 
     };
     this.fa_djig_cube = function (djig_cube) {
-     
-        
+
+
         var dice_rand = podaci.dice_rand;
         var timeout_seconds = 100;
 
@@ -931,9 +937,13 @@ var igra = function () {
     this.kosledecibacaKocku = function (h) {
         document.querySelector("div-baza1").classList.remove("active");
         document.querySelector("div-baza2").classList.remove("active");
-
+        var numbersion = parseInt(djig_cube2.getAttribute("data-dbacanje"));
+        if (numbersion > 0) {
+            numbersion--;
+            djig_cube2.setAttribute("data-dbacanje", numbersion);
+        }
         var data_id = djig_cube2.getAttribute("data-id");
-        if (parseInt(djig_cube2.getAttribute("data-id")) == 2) {
+        if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
 
             if (document.querySelectorAll(".pijun_A").length > 0) {
                 if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
@@ -955,7 +965,7 @@ var igra = function () {
             }
 
         }
-        if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
+        if (parseInt(djig_cube2.getAttribute("data-id")) == 2) {
             if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
                 if (document.querySelectorAll(".pijun_B").length > 0) {
                     if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
