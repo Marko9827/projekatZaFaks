@@ -808,36 +808,36 @@ var igra = function () {
         //}
 
         if (vvv == 6) {
+          
+
+            if ($(`div-baza${cub} .disabled`).length < 4) {
+                podaci.kocka = 0;
+                podaci.kocka += 1;
+                document.querySelector(`div-baza${cub}`).classList.add("active");
+                djig_cube.classList.add("disabled");
+                new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
+                igra.logger(JSON.stringify(podaci.dodatna_bacanja) + "\n" + cub);
+
+
+                div_put.setAttribute("active", cub);
+
+                // if (podaci.dodatna_bacanja.A == 0) {
+                if (cub == 1) {
+                    podaci.dodatna_bacanja.A += 1;
+                    $("#tabla div-cocka i").attr("data-Dbacanje", podaci.dodatna_bacanja.A);
+                }
+                if (cub == 2) {
+                    podaci.dodatna_bacanja.B += 1;
+                    $("#tabla div-cocka i").attr("data-Dbacanje", podaci.dodatna_bacanja.B);
+                }
+                igra.logger(`Dodatno bacanje +1 ukupno: ${djig_cube2.getAttribute("data-Dbacanje")}`);
 
 
 
-            podaci.kocka = 0;
-            podaci.kocka += 1;
-            document.querySelector(`div-baza${cub}`).classList.add("active");
-            djig_cube.classList.add("disabled");
-            new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
-            igra.logger(JSON.stringify(podaci.dodatna_bacanja) + "\n" + cub);
-
-
-            div_put.setAttribute("active", cub);
-
-            // if (podaci.dodatna_bacanja.A == 0) {
-            if (cub == 1) {
-                podaci.dodatna_bacanja.A += 1;
-                $("#tabla div-cocka i").attr("data-Dbacanje", podaci.dodatna_bacanja.A);
+                document.querySelector(`div-baza${cub}`).classList.add("active");
+                // djig_cube.classList.add("disabled");
+                igra.logger(podaci.dodatna_bacanja + "\n" + cub);
             }
-            if (cub == 2) {
-                podaci.dodatna_bacanja.B += 1;
-                $("#tabla div-cocka i").attr("data-Dbacanje", podaci.dodatna_bacanja.B);
-            }
-            igra.logger(`Dodatno bacanje +1 ukupno: ${djig_cube2.getAttribute("data-Dbacanje")}`);
-
-
-
-            document.querySelector(`div-baza${cub}`).classList.add("active");
-            // djig_cube.classList.add("disabled");
-            igra.logger(podaci.dodatna_bacanja + "\n" + cub);
-
 
         } else {
 
@@ -909,7 +909,7 @@ var igra = function () {
                     //$("#tabla div-cocka i").attr("data-id", 1);
                     igra.kocka("A");
                 }
-            } 
+            }
             igra.kosledecibacaKocku(vvv);
         }
     };
@@ -920,12 +920,12 @@ var igra = function () {
             $("#tabla div-cocka i").attr("data-id", 1);
             $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
             div_put.setAttribute("active", 1);
-           /* if (document.querySelectorAll(".pijun_A").length > 0) {
-                if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
-                    djig_cube.classList.add("disabled");
-                    div_put.setAttribute("active", 1);
-                }
-            } */
+            /* if (document.querySelectorAll(".pijun_A").length > 0) {
+                 if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
+                     djig_cube.classList.add("disabled");
+                     div_put.setAttribute("active", 1);
+                 }
+             } */
         } else if (sta == "B") {
             $("#tabla div-cocka i").attr("data-id", 2);
             $("#rezlutat .fa-user").addClass("koSledeciIgra");
@@ -972,7 +972,7 @@ var igra = function () {
                     igra.kocka("B");
                 }
                 div_put.setAttribute("active", 2);
-              //  igra.kocka("B");
+                //  igra.kocka("B");
                 new igra.msg("Odaberi pijuna sa kojim ćeš da prvi načiniš potez!");
                 new igra.logger("Kocka - 1");
             }
@@ -994,7 +994,7 @@ var igra = function () {
                         igra.kocka("A");
                     }
                     div_put.setAttribute("active", 1);
-               //     igra.kocka("A");
+                    //     igra.kocka("A");
                     new igra.msg("Odaberi pijuna sa kojim ćeš da prvi načiniš potez!");
                     new igra.logger("Kocka - 2");
                 }
