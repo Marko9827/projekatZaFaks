@@ -12,6 +12,14 @@ var vremenkusa,
         temp: {
             class: "",
         },
+        poljeViseKomada: [
+            /* Po resetovanju ide ovo {
+                polje: false,
+                pijuni: [
+                    "A1"
+                ]
+            } */
+        ],
         dice_rand: {
             0: "fa-dice-one",
             1: "fa-dice-one",
@@ -222,7 +230,7 @@ var igra = function () {
             i_K = 4,
             intervalFX = true,
             int = setInterval(() => {
-                console.log(i);
+                 
                 try {
                     i++;
                     document.querySelectorAll("#tabla div-put i").forEach(function (v) {
@@ -274,7 +282,7 @@ var igra = function () {
                         v.classList.remove("naradzasta_test");
                         v.classList.remove("roza_test");
 
-                    });
+                    }); 
                     if (i == 7 || i == 4) {
                         document.querySelector(`#tabla div-put i[data-fldB="${i}"]`).classList.add("purle_test");
                     } else if (i == 0 || i == 22) {
@@ -284,7 +292,7 @@ var igra = function () {
                     } else {
                         document.querySelector(`#tabla div-put i[data-fldB="${i}"]`).classList.add("green_test");
                     }
-                    if (i == 15) {
+                    if (i == 32) {
 
                         document.querySelectorAll("#tabla div-put i").forEach(function (v) {
 
@@ -387,7 +395,7 @@ var igra = function () {
     };
     this.broj_kocke = function () {
         var num = parseInt(document.querySelector("#tabla div-cocka i").getAttribute("data-number"));
-        console.log(num);
+         igra.logger(num);
         return num;
     };
     this.kucica = function (b, b2) {
@@ -445,7 +453,7 @@ var igra = function () {
     this.pomerime_na_Broj_novi_click = function (tt, br, grupa, pijun) {
         var polje = document.querySelector(` div-put i[data-fld='${br}']`);
         temp = polje.getAttribute("class");
-        console.log(br, grupa, pijun);
+       igra.logger(br, grupa, pijun);
 
 
 
