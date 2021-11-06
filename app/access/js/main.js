@@ -115,7 +115,7 @@ var igra = function () {
 
             if (v.baza !== true) {
                 if (v.kucica !== false) {
-                   
+
                     new igra.pomerime_na_Broj_novi(v.baza, v.grupa, v.pijun);
                     document.querySelector(`#tabla .bazaAB i[data-fldh="${v.pijun}"]`).classList.add("disabled");
 
@@ -222,6 +222,7 @@ var igra = function () {
             i_K = 4,
             intervalFX = true,
             int = setInterval(() => {
+                console.log(i);
                 try {
                     i++;
                     document.querySelectorAll("#tabla div-put i").forEach(function (v) {
@@ -240,7 +241,7 @@ var igra = function () {
                     } else {
                         document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("green_test");
                     }
-                    if (i == 48) {
+                    if (i == 47) {
 
                         document.querySelectorAll("#tabla div-put i").forEach(function (v) {
 
@@ -251,8 +252,8 @@ var igra = function () {
 
                         });
 
-                      //  igra.testiraj_kucice(150);
-                      igra.testirajB(150);
+                        //  igra.testiraj_kucice(150);
+                        igra.testirajB(150);
                         clearInterval(int);
                     }
 
@@ -262,44 +263,56 @@ var igra = function () {
 
 
     };
-    this.testirajB = function(int){
-       var intB = setInterval(() => {
-            try {
-                i++;
-                document.querySelectorAll("#tabla div-put i").forEach(function (v) {
-                    v.classList.remove("green_test");
-                    v.classList.remove("purle_test");
-                    v.classList.remove("naradzasta_test");
-                    v.classList.remove("roza_test");
-
-                });
-                if (i == 7 || i == 4) {
-                    document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("purle_test");
-                } else if (i == 0 || i == 22) {
-                    document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("naradzasta_test");
-                } else if (i == 30) {
-                    document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("roza_test");
-                } else {
-                    document.querySelector(`#tabla div-put i[data-fld="${i}"]`).classList.add("green_test");
-                }
-                if (i == 48) {
-
+    this.testirajB = function (int) {
+        var i = 0,
+            intB = setInterval(() => {
+                try {
+                    i++;
                     document.querySelectorAll("#tabla div-put i").forEach(function (v) {
-
                         v.classList.remove("green_test");
                         v.classList.remove("purle_test");
                         v.classList.remove("naradzasta_test");
                         v.classList.remove("roza_test");
 
                     });
+                    if (i == 7 || i == 4) {
+                        document.querySelector(`#tabla div-put i[data-fldB="${i}"]`).classList.add("purle_test");
+                    } else if (i == 0 || i == 22) {
+                        document.querySelector(`#tabla div-put i[data-fldB="${i}"]`).classList.add("naradzasta_test");
+                    } else if (i == 30) {
+                        document.querySelector(`#tabla div-put i[data-fldB="${i}"]`).classList.add("roza_test");
+                    } else {
+                        document.querySelector(`#tabla div-put i[data-fldB="${i}"]`).classList.add("green_test");
+                    }
+                    if (i == 15) {
 
-                    //  igra.testiraj_kucice(150);
-                    clearInterval(intB);
-                }
+                        document.querySelectorAll("#tabla div-put i").forEach(function (v) {
+
+                            v.classList.remove("green_test");
+                            v.classList.remove("purle_test");
+                            v.classList.remove("naradzasta_test");
+                            v.classList.remove("roza_test");
+
+                        });
+
+                        //  igra.testiraj_kucice(150);
+                        setTimeout(() => {
+                            document.querySelector("div-zam i").classList.remove("green_test");
+                            document.querySelector("li[data-opt='resume_start']").setAttribute("onclick", "igra.start();");
+                            document.querySelector("li[data-opt='resume_start']").innerHTML = "Nova igra";
+
+                            document.querySelector("li[data-opt='resume_stop']").removeAttribute("style");
+                            document.querySelector("li[data-opt='resume_stop']").setAttribute("onclick", "igra.cancel();");
+                            document.querySelector("li[data-opt='resume_stop']").innerHTML = "Zatvori igru";
+
+                            new igra.stop_hardcore();
+                        }, 1500);
+                        clearInterval(intB);
+                    }
 
 
-            } catch (e) { }
-        }, int);
+                } catch (e) { }
+            }, int);
     };
     this.zakljucaj = function (w) {
         if (parseInt(w) == 1) {

@@ -4,7 +4,7 @@
 <head>
     <title>Neljuti se čoveče</title>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable='no'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable='no'">
     <meta name="description" content="Igra neljuti se čoveče">
     <link rel="preload" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" as="style" type="text/css">
     <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
@@ -24,7 +24,7 @@
 
     <div id="tabla" data-opt="loadet">
         <ul data-ul="opcije">
-            <li data-opt="resume_start"  >TESTIRANJE SAČEKAJ!</li>
+            <li data-opt="resume_start">TESTIRANJE SAČEKAJ!</li>
             <li><span id="rezlutat"><i class="fas fa-horse-head"></i> 0:0 <i class="far fa-user"></i></span><br>
                 <span id="vremeigre">0s</span>
             </li>
@@ -76,11 +76,11 @@
             </div-put-coll>
             <div-put-coll data-ul="bottom">
                 <div-i data-ui="left">
-                    <i  data-fld="37" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="36" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="35" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="34" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="33" data-id="round" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="37" data-fldB="15" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="36" data-fldB="14" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="35" data-fldB="13" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="34" data-fldB="12" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="33" data-fldB="11" data-id="round" class="i-put far fa-dot-circle"></i>
 
                 </div-i>
                 <div-i data-ui="center">
@@ -88,15 +88,15 @@
                     <i class="disabled i-f-ignore-me-2 far fa-circle"></i>
                     <i class="disabled i-f-ignore-me-2 far fa-circle"></i>
                     <i class="disabled i-f-ignore-me-2    far fa-circle"></i>
-                    <i  data-fld="32"  data-id="round" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="32" data-fldB="10" data-id="round" class="i-put far fa-dot-circle"></i>
 
                 </div-i>
                 <div-i data-ui="right">
-                    <i  data-fld="27" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="28" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="29" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="30" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="31" data-id="round" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="27" data-fldB="5" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="28" data-fldB="6" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="29" data-fldB="7" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="30" data-fldB="8" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="31" data-fldB="9" data-id="round" class="i-put far fa-dot-circle"></i>
 
                 </div-i>
             </div-put-coll>
@@ -114,15 +114,16 @@
                     <i data-fld="45" data-home="4" class="disabled i-f-ignore-me-1 i-f-home fas fa-horse-head"></i>
                     <i data-fld="46" data-home="3" class="disabled i-f-ignore-me-1 i-f-home fas fa-horse-head"></i>
                     <i data-fld="47" data-home="2" class="disabled i-f-ignore-me-1 i-f-home fas fa-horse-head"></i>
-                    <i data-fld="48" data-home="1" data-id="round" class="disabled  i-f-ignore-me-1 i-f-home fas fa-horse-head"></i>
+                    <i data-fld="48" data-home="1" data-id="round"
+                        class="disabled  i-f-ignore-me-1 i-f-home fas fa-horse-head"></i>
 
                 </div-i>
                 <div-i data-ui="right">
-                    <i  data-fld="42" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="41" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="40" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="39" class="i-put far fa-dot-circle"></i>
-                    <i  data-fld="38" data-id="round" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="42" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="41" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="40" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="39" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="38" data-id="round" class="i-put far fa-dot-circle"></i>
 
                 </div-i>
             </div-put-coll>
@@ -144,19 +145,20 @@
 
                 </div-i>
                 <div-i data-ui="right">
-                    <i data-fld="26" class="i-put far fa-dot-circle"></i>
-                    <i data-fld="25" class="i-put far fa-dot-circle"></i>
-                    <i data-fld="24" class="i-put far fa-dot-circle"></i>
-                    <i data-fld="23" class="i-put far fa-dot-circle"></i>
-                    <i data-fld="22" data-id="round" data-home="B" class="i-home-put i-put far fa-dot-circle"></i>
+                    <i data-fld="26" data-fldB="4" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="25" data-fldB="3" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="24" data-fldB="2" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="23" data-fldB="1" class="i-put far fa-dot-circle"></i>
+                    <i data-fld="22" data-fldB="0" data-id="round" data-home="B"
+                        class="i-home-put i-put far fa-dot-circle"></i>
 
                 </div-i>
             </div-put-coll>
-            <div-zam ><i class="fab fa-fort-awesome"></i>
+            <div-zam><i class="fab fa-fort-awesome"></i>
             </div-zam>
         </div-put>
         <div-StatusIgre></div-StatusIgre>
-  
+
     </div>
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
 
