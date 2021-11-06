@@ -13,6 +13,8 @@ var vremenkusa,
         temp: {
             class: "",
         },
+        REZLUTAT_A: 0,
+        REZLUTAT_B: 0,
         poljeViseKomada: [
             /* Po resetovanju ide ovo {
                 polje: false,
@@ -682,7 +684,35 @@ var igra = function () {
                 podaci.dodatna_bacanja.B = 0;
             }
         }
+        igra.koje_pobedio();
     };
+    this.koje_pobedio = function () {
+
+        if ($(`div-baza1 .disabled`).length < 4) {
+            document.querySelectorAll("i-f-ignore-me-1").forEach(function (v) {
+                if (v.classList.contains("pijun_A")) {
+                    podaci.REZLUTAT_A++;
+                }
+            });
+        };
+        if ($(`div-baza2 .disabled`).length < 4) {
+            document.querySelectorAll("i-f-ignore-me-3").forEach(function (v) {
+                if (v.classList.contains("pijun_B")) {
+                    REZLUTAT_B++;
+                }
+            });
+        };
+        document.querySelector("#rezlutat").innerHTML = `
+        <i class="fas fa-horse-head"></i> ${podaci.REZLUTAT_A}:${podaci.REZLUTAT_B} <i class="far fa-user koSledeciIgra"></i>`;
+        if (podaci.REZLUTAT_A == 4) {
+            alert("Pobedio je igrač A! \n Kada potvrdiš pohvalu igra će početi izpočetka!");
+            igra.stop();
+        }
+        if (podaci.REZLUTAT_B == 4) {
+            alert("Pobedio je igrač B! \n Kada potvrdiš pohvalu igra će početi izpočetka!");");
+            igra.stop();
+         }
+    }
     this.pijunB = function (name) {
         djig_cube2.setAttribute("class", "div-cocka  fas fa-dice");
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
