@@ -698,7 +698,7 @@ var igra = function () {
         if ($(`div-baza2 .disabled`).length < 4) {
             document.querySelectorAll("i-f-ignore-me-3").forEach(function (v) {
                 if (v.classList.contains("pijun_B")) {
-                    REZLUTAT_B++;
+                    podaci.REZLUTAT_B++;
                 }
             });
         };
@@ -709,9 +709,9 @@ var igra = function () {
             igra.stop();
         }
         if (podaci.REZLUTAT_B == 4) {
-            alert("Pobedio je igrač B! \n Kada potvrdiš pohvalu igra će početi izpočetka!");");
+            alert("Pobedio je igrač B! \n Kada potvrdiš pohvalu igra će početi izpočetka!");
             igra.stop();
-         }
+        }
     }
     this.pijunB = function (name) {
         djig_cube2.setAttribute("class", "div-cocka  fas fa-dice");
