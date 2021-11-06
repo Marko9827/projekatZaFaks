@@ -1150,3 +1150,9 @@ var igra = function () {
 
 var igra = new igra();
 //igra.testiraj();
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js');
+    });
+}
