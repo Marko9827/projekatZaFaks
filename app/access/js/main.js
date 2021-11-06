@@ -292,7 +292,7 @@ var igra = function () {
                     } else {
                         document.querySelector(`#tabla div-put i[data-fldB="${i}"]`).classList.add("green_test");
                     }
-                    if (i == 32) {
+                    if (i == 47) {
 
                         document.querySelectorAll("#tabla div-put i").forEach(function (v) {
 
