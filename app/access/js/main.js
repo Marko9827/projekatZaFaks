@@ -182,6 +182,7 @@ var igra = function () {
                             document.querySelector("div-zam i").classList.remove("green_test");
                             document.querySelector("li[data-opt='resume_start']").setAttribute("onclick", "igra.start();");
                             document.querySelector("li[data-opt='resume_start']").innerHTML = "Nova igra";
+                            $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
 
                             document.querySelector("li[data-opt='resume_stop']").removeAttribute("style");
                             document.querySelector("li[data-opt='resume_stop']").setAttribute("onclick", "igra.cancel();");
@@ -215,7 +216,7 @@ var igra = function () {
         document.querySelector("li[data-opt='resume_start']").setAttribute("onclick", "igra.start();");
         document.querySelector("li[data-opt='resume_start']").innerHTML = "Nova igra";
 
-
+        $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
         document.querySelector("li[data-opt='resume_stop']").removeAttribute("style");
         document.querySelector("li[data-opt='resume_stop']").setAttribute("onclick", "igra.cancel();");
         document.querySelector("li[data-opt='resume_stop']").innerHTML = "Zatvori igru";
@@ -308,13 +309,13 @@ var igra = function () {
                             document.querySelector("div-zam i").classList.remove("green_test");
                             document.querySelector("li[data-opt='resume_start']").setAttribute("onclick", "igra.start();");
                             document.querySelector("li[data-opt='resume_start']").innerHTML = "Nova igra";
-
+                            $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
                             document.querySelector("li[data-opt='resume_stop']").removeAttribute("style");
                             document.querySelector("li[data-opt='resume_stop']").setAttribute("onclick", "igra.cancel();");
                             document.querySelector("li[data-opt='resume_stop']").innerHTML = "Zatvori igru";
 
                             new igra.stop_hardcore();
-                        }, 1500);
+                        }, intB);
                         clearInterval(intB);
                     }
 
@@ -877,7 +878,7 @@ var igra = function () {
                 }
                 
             }*/
-            //igra.kosledecibacaKocku("");
+            //igra.kosledecHibacaKocku("");
             djig_cube2.classList.add("disabled");
             igra.kosledecibacaKocku(vvv);
         }
@@ -900,12 +901,22 @@ var igra = function () {
         }
     };
     this.kocka = function (sta) {
+        $("#rezlutat i").removeClass("koSledeciIgra");
         if (sta == "A") {
             $("#tabla div-cocka i").attr("data-id", 1);
+            $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
         } else if (sta == "B") {
             $("#tabla div-cocka i").attr("data-id", 2);
+            $("#rezlutat .fa-user").addClass("koSledeciIgra");
+
         } else {
-            $("#tabla div-cocka i").attr("data-id", sta);
+            $("#tabla div-cocka i").attr("data-id", parseInt(sta));
+            if(parseInt(sta) == 1){
+                $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
+            }
+            if (parseInt(sta) == 2){
+                $("#rezlutat .fa-user").addClass("koSledeciIgra");
+            }
         }
         $("#tabla div-cocka i").attr("data-dbacanje", 0)
     };

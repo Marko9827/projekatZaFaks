@@ -15,10 +15,15 @@
     padding: 0px;
     color: var(--boja1);
     border-color: var(--boja1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
 i {
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
     transition: opacity .3s;
 }
 
@@ -27,6 +32,8 @@ i {
 }
 
 body {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: absolute;
     top: 0px;
@@ -37,6 +44,8 @@ body {
 
 #tabla {
     margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 600px;
     height: 600px;
@@ -52,6 +61,8 @@ body {
 
 #tabla ul[data-ul="opcije"] {
     list-style-type: none;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     position: absolute;
     left: 0px;
@@ -153,6 +164,8 @@ body {
 
 #tabla div-put div-i[data-ui="gore"] {
     top: 0px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     left: 0px;
     right: 0px;
@@ -160,6 +173,8 @@ body {
 
 #tabla div-put div-i[data-ui="dole"] {
     bottom: 0px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     left: 0px;
     right: 0px;
@@ -167,6 +182,7 @@ body {
 
 #tabla div-put div-i[data-ui="levo"] {
     left: 0px;
+    display: -ms-grid;
     display: grid;
     bottom: 0px;
     top: 0px;
@@ -174,6 +190,7 @@ body {
 
 #tabla div-put div-i[data-ui="desno"] {
     right: 0px;
+    display: -ms-grid;
     display: grid;
     bottom: 0px;
     top: 0px;
@@ -205,31 +222,45 @@ div-put div-i[data-ui="levo"] i {
     top: 56px;
     -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2)) !important;
     enable-background: new 0 0 512 512 !important;
+    display: -ms-grid;
     display: grid;
 }
 
 #tabla div-put-coll {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 #tabla div-put-coll div-i {
+    display: -ms-grid;
     display: grid;
     position: unset;
 }
 
 div-put-coll[data-ul="left"] {
+    display: -ms-grid !important;
     display: grid !important;
     margin-left: 53px !important;
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
     width: fit-content !important;
     position: absolute;
 }
 
 div-put-coll[data-ul="right"] {
+    display: -ms-grid !important;
     display: grid !important;
     margin-right: 53px !important;
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
     width: fit-content !important;
     position: absolute;
     right: 0px;
@@ -242,6 +273,8 @@ div-put-coll[data-ul="bottom"] {
 }
 
 div-put-coll[data-ul="left"] div-i, div-put-coll[data-ul="right"] div-i {
+    display: -webkit-inline-box !important;
+    display: -ms-inline-flexbox !important;
     display: inline-flex !important;
 }
 
@@ -265,8 +298,6 @@ div-i .i-home-put {
 
 .piun_active {
     outline: 2px solid;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
     outline-offset: 0px;
     background: var(--bela_prozirna);
@@ -283,8 +314,6 @@ div-put i {
 
 div-put[active="1"] .fa-horse-head:not(.i-f-home) {
     outline: 2px solid;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
     outline-offset: 0px;
     background: var(--bela_prozirna);
@@ -293,8 +322,6 @@ div-put[active="1"] .fa-horse-head:not(.i-f-home) {
 
 div-put[active="2"] .fa-user:not(.i-f-home) {
     outline: 2px solid;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
     outline-offset: 0px;
     background: var(--bela_prozirna);
@@ -309,6 +336,8 @@ div-zam {
     right: 0px;
     bottom: 0px;
     top: 49px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     text-align: center;
     pointer-events: none;
@@ -322,4 +351,10 @@ div-zam i {
     height: auto !important;
     color: var(--bojPut);
     pointer-events: none;
+}
+
+.koSledeciIgra {
+    outline: 1px solid;
+    outline-offset: 2px;
+    -webkit-border-radius: 1px;
 }
