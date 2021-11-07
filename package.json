@@ -33,9 +33,7 @@
     "displayName": "Neljuti se čoveče",
     "readme": "README.MD",
     "license": "MIT",
-    "engines": {
-        "vscode": "^1.46.0"
-    },
+    
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "bootstrap": "^3.4.1",
