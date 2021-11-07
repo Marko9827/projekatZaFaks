@@ -948,7 +948,7 @@ var igra = function () {
             podaci.kocka = 0;
             podaci.kocka += 1;
             if ($(`div-baza${cub} .disabled`).length < 4) {
-                document.querySelector(`div-baza${cub}`).classList.add("active");
+             $(`div-baza${cub}`).addClass("active");
             }
             djig_cube.classList.add("disabled");
             new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
@@ -979,8 +979,9 @@ var igra = function () {
                 } else {
                     $("#rezlutat .fa-user").addClass("koSledeciIgra");
                 }
-                document.querySelector(`div-baza${cub}`).classList.add("active");
-            }
+            //    document.querySelector(`div-baza${cub}`).classList.add("active");
+                $(`div-baza${cub}`).addClass("active");
+        }
             // djig_cube.classList.add("disabled");
             igra.logger(podaci.dodatna_bacanja + "\n" + cub);
 
@@ -1207,6 +1208,6 @@ var igra = new igra();
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/sw.js').catch(function (err) { return false; });
+      //  navigator.serviceWorker.register('/sw.js').catch(function (err) { return false; });
     });
 }
