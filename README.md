@@ -50,12 +50,16 @@ Neke od komandi za consolu:
 | igra.log(0);       | Igra i dalje radi ali se ne prikazuje u Consoli od Web pregledača  |
 
 > Status (Vidi se samo na Github, privatni je respozitorijum trebaće vam pristup!)
-
 [![Node.js CI](https://github.com/Marko9827/projekatZaFaks/actions/workflows/node.js.yml/badge.svg)](https://github.com/Marko9827/projekatZaFaks/actions/workflows/node.js.yml)
 
 > Moj algoritam po kojem sam radio
-
 [![Algoritam](Ralgoritam.svg)](Ralgoritam.svg)
+
+> Bela tema 
+[![Bela tema ](app/access/img/tema_bela.png)](app/access/img/tema_bela.png)
+
+> Tamna tema 
+[![Tamna tema ](app/access/img/tema_tamna.png)](app/access/img/tema_tamna.png)
 
 # Kontakt informacije:
 
