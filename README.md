@@ -22,7 +22,7 @@ U projektu korišćeno:
 # Pokretanje preko nodjes
  1. Idi na ```root``` folder projekta. Tvoj /folder/```projekatZaFaks```
  2. npm install
- 3. node server.js
+ 3. npm start
  4. Automatizovana skripta će vas odvesti na željeni link. Malo strpljena!
 
 # Pokretanje preko bilo kog servera
@@ -41,8 +41,10 @@ Neke od komandi za consolu:
 | igra.kocka(A);     | Igrač A baca kocku                                                 |
 | igra.kocka(B);     | Igrač B baca kocku                                                 |
 | igra.stop();       | Zavšrena igra                                                      |
-| igra.stop(1);      | Zatvara karticu                                                    |
-| igra.log();        | Sačuvaj rezlutat igre                                              |
+| igra.cancel();     | Zatvara karticu                                                    |
+| igra.pobe('A');    | Pobedio igrač A, varanje                                           |
+| igra.pobe('B');    | Pobedio igrač B, varanje                                           |
+| igra.log(3);       | Sačuvaj rezlutat igre                                              |
 | igra.log(1);       | Pokreći log u consoli                                              |
 | igra.log(0);       | Igra i dalje radi ali se ne prikazuje u Consoli od Web pregledača  |
 

@@ -9,16 +9,33 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Marko9827/projekatZaFaks.git"
+        "url": "https://github.com/Marko9827/projekatZaFaks.git",
+        "directory": ""
     },
+    "categories": [
+        "Visualization",
+        "Education",
+        "Other"
+    ],
+    "main": "./server.js",
     "scripts": {
-        "test": "",
         "start": "node server.js"
+    },
+    "config": {
+        "port": "8080"
+    },
+    "private": true,
+    "galleryBanner": {
+        "color": "#ffffff",
+        "theme": "light"
     },
     "homepage": "https://github.com/Marko9827/projekatZaFaks",
     "displayName": "Neljuti se čoveče",
     "readme": "README.MD",
-    "license": "CC0-1.0",
+    "license": "MIT",
+    "engines": {
+        "vscode": "^1.46.0"
+    },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "bootstrap": "^3.4.1",
