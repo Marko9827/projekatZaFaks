@@ -10,4 +10,22 @@ graph TD
     BacanjeKck-->|Dobio 6| D1[Dodatno bacanje]
     D1-->|Ako je igrac A| N1_A[Igrač mora da čeka potez A]
     
+    KB1-->|Ako je klikno| K[Odobri kocku]
  
+    BacanjeKck-->|A !== 1| ZakljucajA[Zakljucaj]
+  BacanjeKck-->|A == 1| OtkljucajA[Otkljucaj]
+
+      BacanjeKck-->|B !== 1| ZakljucajB[Zakljucaj]
+  BacanjeKck-->|B == 1| OtkljucajB[Otkljucaj]
+
+  OtkljucajA--> K
+  OtkljucajB--> K
+
+  K-->BAC[Baci kocku]
+  BAC-->KucicaA4
+  KucicaA4-->|KucicaA > 0| AP1[Izbaci pijuna]
+
+   BAC-->KucicaB4
+  KucicaB4-->|KucicaB > 0| AP1[Izbaci pijuna]
+K-->baca1-->|BazaA == 4| PobenikA[Pobecio A]
+ K-->baca2-->|BazaB == 4| PobenikB[Pobecio B]

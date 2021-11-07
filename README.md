@@ -53,7 +53,8 @@ Neke od komandi za consolu:
 [![Node.js CI](https://github.com/Marko9827/projekatZaFaks/actions/workflows/node.js.yml/badge.svg)](https://github.com/Marko9827/projekatZaFaks/actions/workflows/node.js.yml)
 
 > Moj algoritam po kojem sam radio
-!(Moj algoritam po kojem sam radio)[./Ralgoritam.svg]
+
+!(Moj algoritam po kojem sam radio)[./Ralgoritam.jpg]
 
 # Kontakt informacije:
 
