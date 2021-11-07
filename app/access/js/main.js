@@ -1182,6 +1182,18 @@ var igra = function () {
                 i++;
                 c1.setAttribute("class", "fas " + podaci.dice_rand[i]);
                 if (i == 6) {
+                    $("prijeload-kockice i[data-ui='H']").addClass("prijeload_complete");
+                    setTimeout(() => {
+                        $("div-prijeload").css({
+                            "opacity":"0"
+                        });   $("#tabla").css({
+                                "transform": "unset"
+                            });
+                        setTimeout(() => {
+                            $("prijeload-kockice i[data-ui='H']").remove();
+                         
+                        },1000);
+                    }, 1500);
                     clearInterval(prijeload_T);
                 }
             }, 500)
