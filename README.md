@@ -43,6 +43,7 @@ Neke od komandi za consolu:
 | igra.stop();       | Zavšrena igra                                                      |
 | igra.cancel();     | Zatvara karticu                                                    |
 | igra.pobe('A');    | Pobedio igrač A, varanje                                           |
+| igra.tema()        | Promena na tamnu temu ili na svetlu                                |
 | igra.pobe('B');    | Pobedio igrač B, varanje                                           |
 | igra.log(3);       | Sačuvaj rezlutat igre                                              |
 | igra.log(1);       | Pokreći log u consoli                                              |

@@ -21,6 +21,18 @@
     user-select: none;
 }
 
+.dark_theme {
+    --boja1: #fff;
+    --bela: #263238;
+    --bojPut: #ffffffa1;
+    --zelena: #4caf50;
+    --naradzasta_test: rgb(255, 81, 0);
+    --plava: blue;
+    --ljubivasta: purple;
+    --roza_test: #EAD1DC;
+    --bela_prozirna: rgb(255 255 255 / 68%);
+}
+
 i {
     -webkit-transition: opacity .3s;
     -o-transition: opacity .3s;
@@ -40,6 +52,7 @@ body {
     bottom: 0px;
     left: 0px;
     right: 0px;
+    background: var(--bela);
 }
 
 #tabla {
@@ -511,4 +524,15 @@ prijeload-kockice i[data-ui="H"] {
     100% {
         background-position: 5% 0%
     }
+}
+
+.tema_menjanje {
+    position: fixed;
+    bottom: 20px;
+    z-index: 33333;
+    left: 20px;
+    background: var(--bojPut);
+    padding: 10px;
+    border-radius: 6px;
+    color: var(--bela);
 }

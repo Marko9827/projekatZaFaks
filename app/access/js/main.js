@@ -1175,6 +1175,15 @@ var igra = function () {
              }
          }*/
     };
+    this.tema = function(){
+        var htmlV = document.querySelector("html");
+        if(htmlV.classList.contains("dark_theme")){
+            htmlV.classList.remove("dark_theme");
+        }else{
+            htmlV.classList.add("dark_theme");
+
+        }
+    };
     this.prijeload = function () {
         igra.testiraj();
         var i = 0,
