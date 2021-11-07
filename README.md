@@ -54,7 +54,7 @@ Neke od komandi za consolu:
 
 > Moj algoritam po kojem sam radio
 
-[![Algoritam](https://raw.githubusercontent.com/Marko9827/projekatZaFaks/main/Ralgoritam.svg)](https://github.com/Marko9827/projekatZaFaks)
+[![Algoritam](https://raw.githubusercontent.com/Marko9827/projekatZaFaks/main/Ralgoritam.svg)](https://raw.githubusercontent.com/Marko9827/projekatZaFaks/main/Ralgoritam.svg)
 
 # Kontakt informacije:
 
