@@ -15,10 +15,10 @@
         "Visualization",
         "Education",
         "Other"
-    ], 
-    "scripts": { 
+    ],
+    "scripts": {
         "start": "node server.js",
-        "test": ""
+        "test": "./node_modules/mocha/bin/mocha"
     },
     "private": true,
     "galleryBanner": {
@@ -29,7 +29,6 @@
     "displayName": "Neljuti se čoveče",
     "readme": "README.MD",
     "license": "MIT",
-    
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "bootstrap": "^3.4.1",
@@ -39,7 +38,8 @@
         "jquery": "^3.6.0",
         "open": "^8.4.0",
         "path": "^0.12.7"
+    },
+    "devDependencies": {
+        "mocha": "^9.1.3"
     }
 }
-
-
