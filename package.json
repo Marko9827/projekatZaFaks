@@ -21,9 +21,6 @@
     "scripts": {
         "start": "node server.js"
     },
-    "config": {
-        "port": "8080"
-    },
     "private": true,
     "galleryBanner": {
         "color": "#ffffff",
