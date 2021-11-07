@@ -54,7 +54,7 @@ Neke od komandi za consolu:
 
 > Moj algoritam po kojem sam radio
 
-!(Moj algoritam po kojem sam radio)[./Ralgoritam.jpg]
+!(Ralgoritam.jpg)[Ralgoritam.jpg]
 
 # Kontakt informacije:
 
