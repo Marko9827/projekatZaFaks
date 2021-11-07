@@ -18,7 +18,9 @@
     ],
     "scripts": {
         "start": "node server.js",
-        "test": "./node_modules/mocha/bin/mocha"
+        "test": "",
+        "test_mocha": "./node_modules/mocha/bin/mocha",
+        "version": "node --v"
     },
     "private": true,
     "galleryBanner": {
