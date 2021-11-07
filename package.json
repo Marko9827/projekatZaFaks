@@ -9,15 +9,13 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Marko9827/projekatZaFaks.git",
-        "directory": ""
+        "url": "https://github.com/Marko9827/projekatZaFaks.git"
     },
     "categories": [
         "Visualization",
         "Education",
         "Other"
-    ],
-    "main": "./server.js",
+    ], 
     "scripts": {
         "start": "node server.js"
     },
