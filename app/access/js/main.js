@@ -1175,6 +1175,9 @@ var igra = function () {
              }
          }*/
     };
+    this.github = function(){
+        window.open("https://github.com/Marko9827/projekatZaFaks");
+    };
     this.tema = function(){
         var htmlV = document.querySelector("html");
         if(htmlV.classList.contains("dark_theme")){

@@ -19,6 +19,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: .3s;
 }
 
 .dark_theme {
@@ -526,13 +527,29 @@ prijeload-kockice i[data-ui="H"] {
     }
 }
 
-.tema_menjanje {
+.gitub_menjanje, .tema_menjanje {
     position: fixed;
     bottom: 20px;
     z-index: 33333;
     left: 20px;
-    background: var(--bojPut);
+    /* background: var(--bojPut); */
     padding: 10px;
     border-radius: 6px;
+    color: var(--bojPut);
+    height: 16px !important;
+    width: 16px !important;
+    text-align: center;
+    transition: .3s;
+    border: 2px solid var(--bojPut);
+}
+
+.gitub_menjanje {
+    bottom: 64px;
+    left: 20px;
+}
+
+.gitub_menjanje:hover, .tema_menjanje:hover {
+    background: var(--bojPut);
     color: var(--bela);
+    border-color: var(--bojPut);
 }
