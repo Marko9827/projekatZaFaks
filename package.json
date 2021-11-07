@@ -16,8 +16,9 @@
         "Education",
         "Other"
     ], 
-    "scripts": {
-        "start": "node server.js"
+    "scripts": { 
+        "start": "node server.js",
+        "test": "node_modules/.bin/mocha -w"
     },
     "private": true,
     "galleryBanner": {
@@ -40,3 +41,5 @@
         "path": "^0.12.7"
     }
 }
+
+
