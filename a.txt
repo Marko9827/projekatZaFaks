@@ -1,0 +1,13 @@
+graph TD
+    A[Učitavanje] -->|Testiranje| A1[Rezlutat]
+    A1 -->|true| A1T[Pokreni igru]
+    A1 -->|false| A1F[Šalji prijavu bug]
+
+
+    A1T--> IgracA[Igrač A prvi ima prednost]
+    IgracA-->BacanjeKck[Bacanje Kocke]
+    BacanjeKck[Bacanje Kocke] -->|Bez 6| KB1[Pijun napred]
+    BacanjeKck-->|Dobio 6| D1[Dodatno bacanje]
+    D1-->|Ako je igrac A| N1_A[Igrač mora da čeka potez A]
+    
+ 

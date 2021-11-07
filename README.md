@@ -48,9 +48,12 @@ Neke od komandi za consolu:
 | igra.log(1);       | Pokreći log u consoli                                              |
 | igra.log(0);       | Igra i dalje radi ali se ne prikazuje u Consoli od Web pregledača  |
 
-# Status (Vidi se samo na Github, privatni je respozitorijum trebaće vam pristup!)
+> Status (Vidi se samo na Github, privatni je respozitorijum trebaće vam pristup!)
 
 [![Node.js CI](https://github.com/Marko9827/projekatZaFaks/actions/workflows/node.js.yml/badge.svg)](https://github.com/Marko9827/projekatZaFaks/actions/workflows/node.js.yml)
+
+> Moj algoritam po kojem sam radio
+!(Moj algoritam po kojem sam radio)[./Ralgoritam.svg]
 
 # Kontakt informacije:
 

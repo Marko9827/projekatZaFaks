@@ -1190,7 +1190,7 @@ var igra = function () {
                                 "transform": "unset"
                             });
                         setTimeout(() => {
-                            $("prijeload-kockice i[data-ui='H']").remove();
+                            $("div-prijeload").remove();
                          
                         },1000);
                     }, 1500);
@@ -1207,6 +1207,6 @@ var igra = new igra();
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-        //  navigator.serviceWorker.register('/sw.js').catch(function (err) { return false; });
+        navigator.serviceWorker.register('/sw.js').catch(function (err) { return false; });
     });
 }
