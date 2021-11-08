@@ -1046,7 +1046,8 @@ var igra = function () {
             igra.logger(JSON.stringify(podaci.dodatna_bacanja), djig_cube.getAttribute("data-number"));
             if (vvv == 6) {
                 djig_cube2.classList.add("disabled");
-           igra.kosledecibacaKocku(vvv);  }
+                igra.kosledecibacaKocku(vvv);
+            }
 
             if (parseInt($("#tabla div-cocka i").attr("data-Dbacanje")) == 0) {
                 if (parseInt($("#tabla div-cocka i").attr("data-id")) == 1) {
@@ -1057,7 +1058,7 @@ var igra = function () {
                     igra.kocka("A");
                 }
             }
-           
+
         }
     };
     this.kocka = function (sta) {
@@ -1202,15 +1203,23 @@ var igra = function () {
                 if (i == 6) {
                     $("prijeload-kockice i[data-ui='H']").addClass("prijeload_complete");
                     setTimeout(() => {
-                        $("div-prijeload").css({
-                            "opacity": "0"
-                        }); $("#tabla").css({
-                            "transform": "unset"
-                        });
+                        $("prijeload-kockice i").attr("style", "font-size: 0px !important;");
                         setTimeout(() => {
-                            $("div-prijeload").remove();
+                            $("prijeload-kockice i").hide();
+                        }, 100);
+                        setTimeout(() => {
+                            $("div-prijeload").css({
+                                "opacity": "0"
+                            }); 
+                            $("#tabla").css({
+                                "transform": "unset"
+                            });
+                            setTimeout(() => {
+                                $("div-prijeload").remove();
 
+                            }, 1000);
                         }, 1000);
+
                     }, 1500);
                     clearInterval(prijeload_T);
                 }
