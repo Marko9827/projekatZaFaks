@@ -14,6 +14,7 @@ var vremenkusa,
         temp: {
             class: "",
         },
+        Igralog: "",
         REZLUTAT_A: 0,
         REZLUTAT_B: 0,
         poljeViseKomada: [
@@ -379,6 +380,7 @@ var igra = function () {
     };
     this.logger = function (msg) {
         if (window.Igralog == true) {
+            podaci.Igralog += msg + " \n ";
             console.log(`${igra.vremeDatum()}, ${msg}`);
         }
         return false;
@@ -390,6 +392,14 @@ var igra = function () {
         }
         if (nm == 1) {
             window.Igralog = false;
+        }
+        if (nm == 3) {
+            var log_d = new Blob([podaci.Igralog], { type: "text/plain" }),
+                a = document.createElement("a");
+            a.href = URL.createObjectURL(log_d);
+            a.click();
+            URL.revokeObjectURL(log_d);
+            // podaci.Igralog = "";
         }
     };
     this.random_boja = function () {
@@ -846,7 +856,7 @@ var igra = function () {
     };
     this.msg = function (msg) {
         document.querySelector("div-cocka span").innerHTML = msg;
-
+        document.querySelector("div-cocka i").setAttribute("title",msg);
     };
     this.fa_djig_cube = function (djig_cube) {
 
@@ -1210,7 +1220,7 @@ var igra = function () {
                         setTimeout(() => {
                             $("div-prijeload").css({
                                 "opacity": "0"
-                            }); 
+                            });
                             $("#tabla").css({
                                 "transform": "unset"
                             });

@@ -25,6 +25,9 @@ const files = [
 
 try {
     const data = fs.writeFileSync('sw.js', `
+
+/* GENERISAN */
+
 "use strict";
 var app_v = "${packageJSON.name}_${packageJSON.version}";
 var assets = ${JSON.stringify(files)};

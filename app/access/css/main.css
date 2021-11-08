@@ -559,3 +559,61 @@ prijeload-kockice i[data-ui="H"] {
     height: 0px;
 }
 
+ul[data-ul="opcije"] li[data-opt="ui_dropdown"] {
+    width: 30px !important;
+    text-align: left !important;
+    display: none;
+}
+
+ul[data-ul="opcije"] li[data-opt="ui_dropdown"] ul {
+    list-style-type: none;
+    display: grid;
+    position: absolute;
+    z-index: 333;
+    border: 2px solid;
+    width: fit-content;
+    border-radius: 6px;
+    background: var(--bela_prozirna);
+    right: 10px;
+    margin-top: 5px;
+}
+
+ul[data-ul="opcije"] li[data-opt="ui_dropdown"] li {
+    padding: 5px 10px;
+    text-align: left !important;
+    width: unset !important;
+    color: var(--bela) !important;
+}
+
+/* */
+
+
+.tip:hover {
+    cursor: help;
+    position: relative
+}
+
+.tip tip-span {
+    display: none;
+    color: var(--bela);
+    background: var(--bojPut);
+    opacity: 0;
+    border-radius: 4px;
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2)) !important;
+    enable-background: new 0 0 512 512 !important;
+    transition: opacity .3s !important;
+}
+
+.tip:hover tip-span {
+    display: block;
+    border: none;
+    padding: 5px 20px 5px 5px;
+    opacity: 0.9;
+    z-index: 100;
+    left: 0px;
+    margin: 10px;
+    width: 250px;
+    position: absolute;
+    top: 10px;
+    text-decoration: none
+}
