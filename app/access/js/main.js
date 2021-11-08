@@ -743,11 +743,8 @@ var igra = function () {
         if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
 
 
-            if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
-                div_put.setAttribute("active", 1);
-            } else {
-                div_put.setAttribute("active", 2);
-            }
+            div_put.setAttribute("active", 2);
+
         }
 
 
@@ -761,21 +758,16 @@ var igra = function () {
             numb = 22;
             numb_class = "pijun_B far fa-user";
         }
-        if (rplNumH == 1) {
-            new igra.pomerime_na_Broj_novi(0, "A", h);
-        } else {
-            new igra.pomerime_na_Broj_novi(22, "B", h);
 
-        }
+        new igra.pomerime_na_Broj_novi(22, "B", h);
+
         data_fld = document.querySelector(`#tabla div-put i[data-fldb='${numb}']`);
         data_fld.setAttribute("class", `i-home-put i-put ${numb_class}`);
         data_fld.setAttribute("data-fldh", h);
         data_fld.setAttribute("data-group", name.getAttribute("data-group"));
-        if (rplNumH == 1) {
-            data_fld.setAttribute("onclick", `igra.menjanje_baze_broj(0,"A","${h}"); igra.pijun_empty(this);`); //pomerime_na_Broj(this)");
-        } else {
-            data_fld.setAttribute("onclick", `igra.menjanje_baze_broj(22,"B","${h}"); igra.pijun_empty(this);`); //pomerime_na_Broj(this)");
-        }
+
+        data_fld.setAttribute("onclick", `igra.menjanje_baze_broj(22,"B","${h}"); igra.pijun_empty(this);`); //pomerime_na_Broj(this)");
+
         name.classList.add("disabled");
         djig_cube2.classList.remove("disabled");
         data_fld.setAttribute("style", "pointer-events:none !important;");
@@ -948,7 +940,7 @@ var igra = function () {
             podaci.kocka = 0;
             podaci.kocka += 1;
             if ($(`div-baza${cub} .disabled`).length < 4) {
-             $(`div-baza${cub}`).addClass("active");
+                $(`div-baza${cub}`).addClass("active");
             }
             djig_cube.classList.add("disabled");
             new igra.msg("Odaberite slobodnog pijuna ili igrajte sa 'izbačenim'!");
@@ -975,13 +967,17 @@ var igra = function () {
                 $("#rezlutat .fa-user").removeClass("koSledeciIgra");
                 if (cub == 1) {
                     $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
+                    $("div-baza1").addClass("active");
 
                 } else {
                     $("#rezlutat .fa-user").addClass("koSledeciIgra");
+                    $("div-baza2").addClass("active");
+
                 }
-            //    document.querySelector(`div-baza${cub}`).classList.add("active");
+                //    document.querySelector(`div-baza${cub}`).classList.add("active");
                 $(`div-baza${cub}`).addClass("active");
-        }
+
+            }
             // djig_cube.classList.add("disabled");
             igra.logger(podaci.dodatna_bacanja + "\n" + cub);
 
@@ -1071,29 +1067,37 @@ var igra = function () {
             $("#tabla div-cocka i").attr("data-id", 1);
             $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
             div_put.setAttribute("active", 1);
-            /* if (document.querySelectorAll(".pijun_A").length > 0) {
-                 if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
-                     djig_cube.classList.add("disabled");
-                     div_put.setAttribute("active", 1);
-                 }
-             } */
+            if (document.querySelectorAll(".pijun_A").length > 0) {
+                if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
+                    djig_cube.classList.add("disabled");
+                    div_put.setAttribute("active", 1);
+                    $("div-baza1").addClass("active");
+                }
+            }
         } else if (sta == "B") {
             $("#tabla div-cocka i").attr("data-id", 2);
             $("#rezlutat .fa-user").addClass("koSledeciIgra");
             div_put.setAttribute("active", 2);
-            /* if (document.querySelectorAll(".pijun_B").length > 0) {
+            $("div-baza2").addClass("active");
+
+            if (document.querySelectorAll(".pijun_B").length > 0) {
                 if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
                     djig_cube.classList.add("disabled");
                     div_put.setAttribute("active", 2);
+                    $("div-baza2").addClass("active");
                 }
-            } */
+            }
         } else {
             $("#tabla div-cocka i").attr("data-id", parseInt(sta));
             if (parseInt(sta) == 1) {
                 $("#rezlutat .fa-horse-head").addClass("koSledeciIgra");
+                $("div-baza1").addClass("active");
+
             }
             if (parseInt(sta) == 2) {
                 $("#rezlutat .fa-user").addClass("koSledeciIgra");
+                $("div-baza2").addClass("active");
+
             }
         }
         $("#tabla div-cocka i").attr("data-dbacanje", 0)
@@ -1149,6 +1153,7 @@ var igra = function () {
                         igra.kocka("A");
                     }
                     div_put.setAttribute("active", 1);
+
                     //     igra.kocka("A");
                     new igra.msg("Odaberi pijuna sa kojim ćeš da prvi načiniš potez!");
                     new igra.logger("Kocka - 2");
@@ -1175,14 +1180,14 @@ var igra = function () {
              }
          }*/
     };
-    this.github = function(){
+    this.github = function () {
         window.open("https://github.com/Marko9827/projekatZaFaks");
     };
-    this.tema = function(){
+    this.tema = function () {
         var htmlV = document.querySelector("html");
-        if(htmlV.classList.contains("dark_theme")){
+        if (htmlV.classList.contains("dark_theme")) {
             htmlV.classList.remove("dark_theme");
-        }else{
+        } else {
             htmlV.classList.add("dark_theme");
 
         }
@@ -1198,14 +1203,14 @@ var igra = function () {
                     $("prijeload-kockice i[data-ui='H']").addClass("prijeload_complete");
                     setTimeout(() => {
                         $("div-prijeload").css({
-                            "opacity":"0"
-                        });   $("#tabla").css({
-                                "transform": "unset"
-                            });
+                            "opacity": "0"
+                        }); $("#tabla").css({
+                            "transform": "unset"
+                        });
                         setTimeout(() => {
                             $("div-prijeload").remove();
-                         
-                        },1000);
+
+                        }, 1000);
                     }, 1500);
                     clearInterval(prijeload_T);
                 }
@@ -1216,10 +1221,13 @@ var igra = function () {
 };
 
 var igra = new igra();
+
+
 //igra.testiraj();
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-      //  navigator.serviceWorker.register('/sw.js').catch(function (err) { return false; });
+
+        //  navigator.serviceWorker.register('/sw.js').catch(function (err) { return false; });
     });
 }
