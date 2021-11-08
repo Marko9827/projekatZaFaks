@@ -1,6 +1,8 @@
 # projekatZaFaks
 
-Ovaj projekat je vezan za moj [privatni respozitorijum](https://github.com/Marko9827/projekatZaFaks).
+
+
+Ovaj projekat je vezan za moj [privatni respozitorijum](https://github.com/Marko9827/projekatZaFaks). ``` Respozitorijum je postavljen na javno 08/11/2021 u 21:25PM ```
 
 Naziv: Neljuti se čoveče
 

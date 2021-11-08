@@ -1,105 +1,4 @@
-
-window.Igralog = true;
-var tabla = document.getElementById("tabla"),
-    start_rs = document.querySelector("#tabla ul[data-ul='opcije'] li[data-opt='resume_start']"),
-    start_st = document.querySelector("#tabla ul[data-ul='opcije'] li[data-opt='resume_stop']"),
-    vremeigre = document.getElementById("vremeigre"),
-    djig_cube2 = document.querySelector(".div-cocka"),
-    djig_cube = document.querySelector(".div-cocka"),
-    div_put = document.querySelector("div-put");
-interval_150 = 150;
-var vremenkusa,
-    sekundara = 0,
-    podaci = {
-        temp: {
-            class: "",
-        },
-        Igralog: "",
-        REZLUTAT_A: 0,
-        REZLUTAT_B: 0,
-        poljeViseKomada: [
-            /* Po resetovanju ide ovo {
-                polje: false,
-                pijuni: [
-                    "A1"
-                ]
-            } */
-        ],
-        dice_rand: {
-            0: "fa-dice-one",
-            1: "fa-dice-one",
-            2: "fa-dice-two",
-            3: "fa-dice-three",
-            4: "fa-dice-four",
-            5: "fa-dice-five",
-            6: "fa-dice-six"
-        },
-        kocka: 0,
-        dodatna_bacanja: {
-            A: 0,
-            B: 0
-        },
-        kucice: {
-            A: false,
-            B: false
-        },
-        pijuni: [{
-            pijun: "A1",
-            grupa: "A",
-            baza: 7,
-            kucica: false
-        },
-        {
-            pijun: "A2",
-            grupa: "A",
-            baza: 4,
-            kucica: false
-
-        },
-        {
-            pijun: "A3",
-            grupa: "A",
-            baza: true,
-            kucica: false
-        },
-        {
-            pijun: "A4",
-            grupa: "A",
-            baza: true,
-            kucica: false
-
-        },
-        {
-            pijun: "B1",
-            grupa: "B",
-            baza: true,
-            kucica: false
-
-        }, {
-            pijun: "B2",
-
-            grupa: "B",
-            baza: true,
-            kucica: true
-
-        }, {
-            pijun: "B3",
-
-            grupa: "B",
-            baza: 30,
-            kucica: false
-
-        },
-        {
-            pijun: "B4",
-
-            grupa: "B",
-            baza: true,
-            kucica: false
-
-        }
-        ]
-    };
+ 
 
 
 var igra = function () {
@@ -121,6 +20,27 @@ var igra = function () {
         });
 
         new igra.baze();
+    };
+    this.ucitaj_lang = function(what){
+        if(what == "RS"){
+
+        }else if(what == "EN"){
+
+        }else{
+
+        }
+    }; 
+    this.lang = function(what){
+        fetch(`../lang/${what}.json`)
+        .then(response => response.json())
+        .then(data => {
+            if(what == "EN"){
+                podaci.lang.EN = data;
+            }
+            if(what == "RS"){
+                podaci.lang.RS = data;
+            }
+        });
     };
     this.baze = function () {
         podaci.pijuni.forEach(function (v) {
@@ -394,11 +314,11 @@ var igra = function () {
             window.Igralog = false;
         }
         if (nm == 3) {
-            var log_d = new Blob([podaci.Igralog], { type: "text/plain" }),
+            var log_d = new Blob([podaci.Igralog], { type: "octet/stream" }),
                 a = document.createElement("a");
             a.href = URL.createObjectURL(log_d);
-            a.click();
-            URL.revokeObjectURL(log_d);
+            a.download = `Sačuvan rezlutat igre i log. Vreme: ${igra.vremeDatum()}.txt`; 
+            a.click(); 
             // podaci.Igralog = "";
         }
     };
@@ -718,6 +638,8 @@ var igra = function () {
         if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
             div_put.removeAttribute("ative");
         }
+        document.querySelector("div-baza1").classList.remove("active");
+        document.querySelector("div-baza2").classList.remove("active");
         igra.koje_pobedio();
     };
     this.koje_pobedio = function () {
@@ -990,6 +912,7 @@ var igra = function () {
             }
             // djig_cube.classList.add("disabled");
             igra.logger(podaci.dodatna_bacanja + "\n" + cub);
+        
 
 
         } else {
@@ -1082,7 +1005,10 @@ var igra = function () {
                 if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
                     djig_cube.classList.add("disabled");
                     div_put.setAttribute("active", 1);
+                    $("div-baza1").removeClass("active");
+                    if ($("#tabla div-cocka i").attr("data-number") == 6){
                     $("div-baza1").addClass("active");
+                    }
                 }
             }
         } else if (sta == "B") {
@@ -1095,7 +1021,10 @@ var igra = function () {
                 if (parseInt(djig_cube2.getAttribute("data-dbacanje")) == 0) {
                     djig_cube.classList.add("disabled");
                     div_put.setAttribute("active", 2);
-                    $("div-baza2").addClass("active");
+                    $("div-baza2").removeClass("active");
+                    if ($("#tabla div-cocka i").attr("data-number") == 6) {
+                        $("div-baza2").addClass("active");
+                    }
                 }
             }
         } else {
