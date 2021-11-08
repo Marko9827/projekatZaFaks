@@ -17,6 +17,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
+<!-- NODE-NO  
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" as="style" type="text/css">
         <link rel="preload" href="https://code.jquery.com/jquery-3.6.0.min.js" as="script"
             type="text/javascript">
@@ -24,10 +25,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
     integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-   
-   
+    NODE-NO -->
+    <link rel="preload" href="../node_modules/jquery/dist/jquery.min.js" as="script" type="text/javascript">
+    <link rel="preload" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" as="style" type="text/css">
     <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-      <link rel="stylesheet" href="./access/css/main.css">
+    <link rel="stylesheet" href="./access/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -39,7 +41,7 @@
 </head>
 
 <body onload="igra.prijeload(); igra.tema();">
-     <div-prijeload>
+    <div-prijeload>
         <dp-content>
             <logo>
                 <i class="fas fa-horse-head"></i>
@@ -60,18 +62,19 @@
             </li>
             <li data-opt="resume_stop" style="pointer-events: none;">TESTIRANJE SAČEKAJ!</li>
             <li data-opt="ui_dropdown">
-            <span><i class="fas fa-ellipsis-v"></i></span>
-            <ul>
-                <li>Nova igra</li>
-                <li></li>
-                <li>Zatvori igru</li>
-            </ul>
-        </li>
+                <span><i class="fas fa-ellipsis-v"></i></span>
+                <ul>
+                    <li>Nova igra</li>
+                    <li></li>
+                    <li>Zatvori igru</li>
+                </ul>
+            </li>
         </ul>
-        
+
         <div-cocka>
-            <i  class="div-cocka fas fa-dice tip" data-id="1" onclick="igra.fa_djig_cube(this);">
-            <tip-span>Bacite ponovo kocku</tip-span></i>
+            <i class="div-cocka fas fa-dice tip" data-id="1" onclick="igra.fa_djig_cube(this);">
+                <tip-span>Bacite ponovo kocku</tip-span>
+            </i>
             <span data-num-id="1">Bacite ponovo kocku.</span>
         </div-cocka>
 
@@ -202,10 +205,12 @@
         <i title="Tamna/Svetla tema" class="tema_menjanje far fa-moon" onclick="igra.tema();"></i>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    <!-- NODE-NO  
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<!-- <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
--->  <script type="text/javascript" src="access/js/data.js" charset="utf-8"></script>
+NODE-NO -->
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="access/js/data.js" charset="utf-8"></script>
     <script type="text/javascript" src="access/js/main.js" charset="utf-8"></script>
 </body>
 
