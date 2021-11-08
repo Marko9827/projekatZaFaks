@@ -1,4 +1,4 @@
- 
+
 
 
 var igra = function () {
@@ -21,26 +21,26 @@ var igra = function () {
 
         new igra.baze();
     };
-    this.ucitaj_lang = function(what){
-        if(what == "RS"){
+    this.ucitaj_lang = function (what) {
+        if (what == "RS") {
 
-        }else if(what == "EN"){
+        } else if (what == "EN") {
 
-        }else{
+        } else {
 
         }
-    }; 
-    this.lang = function(what){
+    };
+    this.lang = function (what) {
         fetch(`../lang/${what}.json`)
-        .then(response => response.json())
-        .then(data => {
-            if(what == "EN"){
-                podaci.lang.EN = data;
-            }
-            if(what == "RS"){
-                podaci.lang.RS = data;
-            }
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (what == "EN") {
+                    podaci.lang.EN = data;
+                }
+                if (what == "RS") {
+                    podaci.lang.RS = data;
+                }
+            });
     };
     this.baze = function () {
         podaci.pijuni.forEach(function (v) {
@@ -317,8 +317,8 @@ var igra = function () {
             var log_d = new Blob([podaci.Igralog], { type: "octet/stream" }),
                 a = document.createElement("a");
             a.href = URL.createObjectURL(log_d);
-            a.download = `Sačuvan rezlutat igre i log. Vreme: ${igra.vremeDatum()}.txt`; 
-            a.click(); 
+            a.download = `Sačuvan rezlutat igre i log. Vreme: ${igra.vremeDatum()}.txt`;
+            a.click();
             // podaci.Igralog = "";
         }
     };
@@ -778,7 +778,7 @@ var igra = function () {
     };
     this.msg = function (msg) {
         document.querySelector("div-cocka span").innerHTML = msg;
-        document.querySelector("div-cocka i").setAttribute("title",msg);
+        document.querySelector("div-cocka i").setAttribute("title", msg);
     };
     this.fa_djig_cube = function (djig_cube) {
 
@@ -912,7 +912,7 @@ var igra = function () {
             }
             // djig_cube.classList.add("disabled");
             igra.logger(podaci.dodatna_bacanja + "\n" + cub);
-        
+
 
 
         } else {
@@ -1006,8 +1006,8 @@ var igra = function () {
                     djig_cube.classList.add("disabled");
                     div_put.setAttribute("active", 1);
                     $("div-baza1").removeClass("active");
-                    if ($("#tabla div-cocka i").attr("data-number") == 6){
-                    $("div-baza1").addClass("active");
+                    if ($("#tabla div-cocka i").attr("data-number") == 6) {
+                        $("div-baza1").addClass("active");
                     }
                 }
             }
@@ -1133,6 +1133,10 @@ var igra = function () {
         }
     };
     this.prijeload = function () {
+        var localhost = window.location.origin;
+        if (!localhost.includes("localhost")) {
+            window.location.href = "https://github.com/Marko9827/projekatZaFaks";
+        }
         igra.testiraj();
         var i = 0,
             c1 = document.querySelector("prijeload-kockice i[data-ui='1']"),
