@@ -755,18 +755,18 @@ var igra = function () {
         numb = 0,
             num = parseInt(djig_cube2.getAttribute("data-id"));
         if (name.getAttribute("data-group") == "B") {
-            numb = 22;
+            numb = 0;
             numb_class = "pijun_B far fa-user";
         }
 
-        new igra.pomerime_na_Broj_novi(22, "B", h);
+        new igra.pomerime_na_Broj_novi(0, "B", 2);
 
         data_fld = document.querySelector(`#tabla div-put i[data-fldb='${numb}']`);
         data_fld.setAttribute("class", `i-home-put i-put ${numb_class}`);
         data_fld.setAttribute("data-fldh", h);
         data_fld.setAttribute("data-group", name.getAttribute("data-group"));
 
-        data_fld.setAttribute("onclick", `igra.menjanje_baze_broj(22,"B","${h}"); igra.pijun_empty(this);`); //pomerime_na_Broj(this)");
+        data_fld.setAttribute("onclick", `igra.menjanje_baze_broj(0,"B","${h}"); igra.pijun_empty(this);`); //pomerime_na_Broj(this)");
 
         name.classList.add("disabled");
         djig_cube2.classList.remove("disabled");
@@ -909,7 +909,7 @@ var igra = function () {
         //       djig_cube.setAttribute("class", "div-cocka  fas fa-dice");
         document.querySelector(`div-baza1, div-baza2`).classList.remove("active");
         djig_cube.setAttribute("data-number", vvv);
-        var cub = parseInt(djig_cube2.getAttribute("data-id"));
+        var cub = parseInt($("#tabla div-cocka i").attr("data-id"));
 
         /*/  - if (AkockaTRi_Puta > 0) {
         if (parseInt(djig_cube2.getAttribute("data-id")) == 1) {
@@ -1046,7 +1046,7 @@ var igra = function () {
             igra.logger(JSON.stringify(podaci.dodatna_bacanja), djig_cube.getAttribute("data-number"));
             if (vvv == 6) {
                 djig_cube2.classList.add("disabled");
-            }
+           igra.kosledecibacaKocku(vvv);  }
 
             if (parseInt($("#tabla div-cocka i").attr("data-Dbacanje")) == 0) {
                 if (parseInt($("#tabla div-cocka i").attr("data-id")) == 1) {
@@ -1057,7 +1057,7 @@ var igra = function () {
                     igra.kocka("A");
                 }
             }
-            igra.kosledecibacaKocku(vvv);
+           
         }
     };
     this.kocka = function (sta) {

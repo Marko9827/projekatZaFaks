@@ -12,6 +12,11 @@
     <link rel="manifest" href="/app/manifest.json">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="mobile-web-app-capable" content="yes">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
     <link rel="preload" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" as="style" type="text/css">
     <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../node_modules/jquery/dist/jquery.min.js">
@@ -26,7 +31,7 @@
         rel="stylesheet">
 </head>
 
-<body  onload="igra.prijeload(); igra.tema();" style="overflow: hidden;">
+<body  onload="igra.prijeload(); igra.tema();"  >
     <div-prijeload>
         <dp-content>
             <logo>
@@ -178,6 +183,7 @@
         <div-StatusIgre></div-StatusIgre>
         <i class="gitub_menjanje fab fa-github" onclick="igra.github();"></i>
         <i class="tema_menjanje far fa-moon" onclick="igra.tema();"></i>
+        
     </div>
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
 

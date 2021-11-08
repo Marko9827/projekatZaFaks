@@ -553,3 +553,9 @@ prijeload-kockice i[data-ui="H"] {
     color: var(--bela);
     border-color: var(--bojPut);
 }
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
