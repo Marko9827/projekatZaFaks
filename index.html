@@ -1,3 +1,28 @@
-<script type="text/javascript" charset="utf-8">
-    window.location.href = "./app/";
-</script>
+<!DOCTYPE html>
+<html lang="rs">
+
+<head>
+    <title>Neljuti se čoveče</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable='no'">
+    <meta name="description" content="Igra neljuti se čoveče">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./favicon.svg">
+    <meta name="theme-color" content="#263238">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+    <script type="text/javascript">
+        var localhost = window.location.origin;
+        if (localhost.includes("localhost")) {
+            window.location.href = "./app/";
+        } else {
+            window.location.href = "https://github.com/Marko9827/projekatZaFaks";
+        }
+    </script>
+    <!-- !!! GITHUB PAGES(FREE OPTION) IS DON'T SUPPORT THIS PROJECT !!! -->
+</body>
+
+</html>
