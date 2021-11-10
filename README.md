@@ -12,6 +12,8 @@ Za pokretanje projekta morate imati instaliran nodejs. Pa onda da startujete ser
 
 > Upozorenje ukoliko aplikacija ne radi pravilno morate je startovati preko bilo kog servera!
 
+> Windows build uskoro!
+
 U projektu korišćeno:
 
 - FontAwesome Icons (UI)
