@@ -1137,6 +1137,8 @@ var igra = function () {
         if (!localhost.includes("localhost")) {
             window.location.href = "https://github.com/Marko9827/projekatZaFaks";
         }
+      
+        
         igra.testiraj();
         var i = 0,
             c1 = document.querySelector("prijeload-kockice i[data-ui='1']"),

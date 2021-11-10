@@ -401,6 +401,7 @@ div-prijeload {
     z-index: 333;
     display: flex;
     text-align: center;
+    transition: opacity .3s !important;
 }
 
 div-prijeload, div-prijeload * {
